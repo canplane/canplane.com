@@ -4,6 +4,8 @@ import Post from '../../models/post';
 import PostSearch from '../post-search';
 import './style.scss';
 
+import AuthorIcon from '/src/assets/author-icon';
+
 function PageHeader({ siteTitle }) {
   return (
     <StaticQuery
@@ -29,7 +31,10 @@ function PageHeader({ siteTitle }) {
           <div className="page-header">
             <div className="front-section">
               <Link className="link" to="/">
-                {siteTitle}
+                <div className="arthor">
+                  <AuthorIcon />
+                  {siteTitle}
+                </div>
               </Link>
             </div>
             <div className="trailing-section">

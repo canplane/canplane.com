@@ -1,15 +1,15 @@
-@use '../../styles/variables'as *;
-@use '../../styles/mixins'as *;
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
 
 .search-input-wrapper {
     display: none;
     align-items: center;
-    width: 180px;
     margin-top: 3px;
 
     @include md {
         display: flex;
+        width: 15rem;
     }
 }
 
@@ -27,9 +27,9 @@
     }
 
     .MuiInputBase-input {
-        font-family: $font-family;
-        font-size: 16px;
-        font-weight: 500;
+        font-family: $font-family  !important;
+        font-size: 1.25rem;
+        font-weight: 400;
         padding-bottom: 2px !important;
         color: var(--primary-text-color) !important;
     }
@@ -42,4 +42,9 @@
     .MuiInput-underline:after {
         border-bottom-color: var(--primary-text-color);
     }
+}
+
+.MuiAutocomplete-paper {
+    font-family: $font-family  !important;
+    border-radius: 0 !important;
 }

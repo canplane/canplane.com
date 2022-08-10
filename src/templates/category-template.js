@@ -4,7 +4,6 @@ import { navigate } from 'gatsby';
 import Layout from '../layout';
 import Seo from '../components/seo';
 import Post from '../models/post';
-import CategoryPageHeader from '../components/category-page-header';
 import PostTabs from '../components/post-tabs';
 
 function CategoryTemplate({ pageContext }) {
@@ -27,7 +26,6 @@ function CategoryTemplate({ pageContext }) {
   return (
     <Layout>
       <Seo title="Posts" />
-      <CategoryPageHeader title={categories[currentTabIndex]} subtitle={`${posts.length} posts`} />
       <PostTabs
         tabIndex={currentTabIndex}
         onChange={onTabIndexChange}

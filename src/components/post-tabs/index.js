@@ -10,8 +10,11 @@ function PostTabs({ tabIndex, onChange, tabs, posts, showMoreButton }) {
   }, [posts, tabs, tabIndex]);
 
   return (
-    <div className="post-tabs-wrapper">
-      <div className="post-tabs">
+    <div className="post-tabs-wrapper grid">
+      <div className="post-tabs grid-1">
+        <div className="category-page-header-wrapper">
+          <div className="category-page-title">{tabs[tabIndex]}</div>
+        </div>
         <Tabs
           className="mui-tabs"
           value={tabIndex}

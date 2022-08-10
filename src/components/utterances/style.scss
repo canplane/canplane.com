@@ -1,0 +1,12 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.utterances-wrapper {
+  width: 100%;
+  padding-top: 8rem;
+
+  .utterances {
+    width: 100%;
+    max-width: 100%;
+  }
+}

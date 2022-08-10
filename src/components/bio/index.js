@@ -1,49 +1,36 @@
 import React from 'react';
-import ReactRotatingText from 'react-rotating-text';
+
+import authorImage from '/src/assets/author.svg';
 import IconButtonBar from '../icon-button-bar';
-import Image from '../image';
+
 import './style.scss';
 
-function Bio({ author, language = 'ko' }) {
-  if (!author) return null;
-  const { bio, social, name } = author;
+function Bio({ bio, social }) {
   return (
     <div className="bio">
-      {language === 'ko' ? (
-        <div className="introduction korean">
-          <p className="title">
-            안녕하세요.
-            <br />
-            <ReactRotatingText items={bio.description} />
-            <br />
-            {bio.role} <strong>{name}</strong>입니다.
-            <br />
-          </p>
-          <div className="social-links">
-            <IconButtonBar links={social} />
-          </div>
+      <img className="logo" alt="logo" src={authorImage} />
+      <div className="introduction">
+        <p className="title">
+          Hello,
+          <br />
+          My name is
+          <br />
+          {bio?.name}
+          .<br />
+        </p>
+        <p className="description">
+          {bio?.description}
+          <br />
+        </p>
+        <div className="social-links">
+          <IconButtonBar
+            links={social}
+            style={{
+              fontSize: '24px',
+              color: 'rgb(0, 0, 0)',
+            }}
+          />
         </div>
-      ) : (
-        <div className="introduction english">
-          <p className="title">
-            Hello,
-            <br />
-            my name is
-            <br />
-            <strong>{name}</strong>
-            .<br />
-          </p>
-          <p className="description">
-            I'm a {bio.role} <ReactRotatingText items={bio.description} />
-            <br />
-          </p>
-          <div className="social-links">
-            <IconButtonBar links={social} />
-          </div>
-        </div>
-      )}
-      <div className="thumbnail-wrapper">
-        <Image style={{ width: 250, height: 250 }} src={bio.thumbnail} alt="thumbnail" />
       </div>
     </div>
   );

@@ -10,12 +10,12 @@ function PostCardColumn({ posts, showMoreButton, moreUrl }) {
   }, [moreUrl]);
 
   return (
-    <div className="post-card-column-wrapper">
+    <div className="post-card-column-wrapper grid-24">
       <div className="post-card-column">
         {posts.map((post, index) => (
           <PostCard key={index} post={post} />
         ))}
-        {showMoreButton && (
+        {/*showMoreButton && (
           <Button
             className="more-post-card-button"
             onClick={onMoreButtonClick}
@@ -24,7 +24,7 @@ function PostCardColumn({ posts, showMoreButton, moreUrl }) {
           >
             More
           </Button>
-        )}
+        )*/}
       </div>
     </div>
   );

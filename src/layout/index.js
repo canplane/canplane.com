@@ -2,7 +2,6 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import PageHeader from '../components/page-header';
 import PageFooter from '../components/page-footer';
-import ThemeSwitch from '../components/theme-switch';
 import './style.scss';
 
 const Layout = ({ children }) => {
@@ -11,27 +10,27 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
-          author {
+          author
+          bio {
             name
-            social {
-              github
-            }
+          }
+          social {
+            github
           }
         }
       }
     }
   `);
-  const { title, author } = data.site.siteMetadata;
+  const { title, author, social } = data.site.siteMetadata;
 
   return (
     <div className="page-wrapper">
       <PageHeader siteTitle={title || `Title`} />
       <main className="page-content">{children}</main>
       <PageFooter
-        author={author.name || `Author`}
-        githubUrl={author.social?.github || `https://www.github.com`}
+        author={author || `Author`}
+        githubUrl={social?.github || `https://www.github.com`}
       />
-      <ThemeSwitch />
     </div>
   );
 };

@@ -23,8 +23,7 @@ function BlogTemplate({ data }) {
     const key = curPost.slug.replace(/\//g, '');
 
     fetch(
-      `https://api.countapi.xyz/${
-        process.env.NODE_ENV === 'development' ? 'get' : 'hit'
+      `https://api.countapi.xyz/${process.env.NODE_ENV === 'development' ? 'get' : 'hit'
       }/${namespace}/${key}`,
     ).then(async (result) => {
       const data = await result.json();
@@ -37,7 +36,7 @@ function BlogTemplate({ data }) {
       <Seo title={curPost?.title} description={curPost?.excerpt} />
       <PostHeader post={curPost} viewCount={viewCount} />
       <PostContent html={curPost.html} />
-      <PostNavigator prevPost={prevPost} nextPost={nextPost} />
+      {/*<PostNavigator prevPost={prevPost} nextPost={nextPost} />*/}
       {utterancesRepo && <Utterances repo={utterancesRepo} path={curPost.slug} />}
     </Layout>
   );
@@ -52,11 +51,10 @@ export const pageQuery = graphql`
       html
       excerpt(pruneLength: 500, truncate: true)
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY. M. D.")
         title
         categories
         author
-        emoji
       }
       fields {
         slug
@@ -67,11 +65,10 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY. M. D.")
         title
         categories
         author
-        emoji
       }
       fields {
         slug
@@ -82,11 +79,10 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY. M. D.")
         title
         categories
         author
-        emoji
       }
       fields {
         slug

@@ -1,5 +1,7 @@
 import React, { createRef, useEffect, useRef } from 'react';
 
+import './style.scss';
+
 const src = 'https://utteranc.es/client.js';
 const branch = 'master';
 
@@ -9,14 +11,14 @@ function Utterances({ repo, path }) {
 
   useEffect(() => {
     if (!rootElm.current || isUtterancesLoaded.current) return;
-    const storedIsDarkMode = localStorage.getItem('isDarkMode');
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     const utterances = document.createElement('script');
     const utterancesConfig = {
       src,
       repo,
       branch,
-      theme: JSON.parse(storedIsDarkMode) ? 'photon-dark' : 'github-light',
+      theme: isDarkMode ? 'photon-dark' : 'github-light',
       label: 'comment',
       async: true,
       'issue-term': 'pathname',
@@ -30,7 +32,11 @@ function Utterances({ repo, path }) {
     isUtterancesLoaded.current = true;
   }, [repo, rootElm, path]);
 
-  return <div className="utterances" ref={rootElm} />;
+  return (
+    <div className="utterances-wrapper grid">
+      <div className="utterances grid-24" ref={rootElm} />
+    </div>
+  );
 }
 
 export default Utterances;

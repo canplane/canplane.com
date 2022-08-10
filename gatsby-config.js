@@ -10,7 +10,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `assets`,
-        path: `${__dirname}/assets`,
+        path: `${__dirname}/src/assets`,
       },
     },
     {
@@ -58,7 +58,7 @@ module.exports = {
         lang: `en`,
         display: `standalone`,
         start_url: `/`,
-        icon: `static/favicon.png`,
+        icon: `src/assets/favicon.png`,
       },
     },
     {
@@ -68,9 +68,10 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 720,
+              maxWidth: 2560,
               linkImagesToOriginal: false,
               backgroundColor: 'transparent',
+              quality: 100,
             },
           },
           {

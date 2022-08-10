@@ -2,6 +2,8 @@ import { useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
+import ogImage from '/src/assets/og-image.png';
+
 function Seo({ description, title }) {
   const { site } = useStaticQuery(
     graphql`
@@ -10,10 +12,8 @@ function Seo({ description, title }) {
           siteMetadata {
             title
             description
-            author {
-              name
-            }
-            ogImage
+            language
+            author
           }
         }
       }
@@ -23,7 +23,7 @@ function Seo({ description, title }) {
   const metaDescription = description || site.siteMetadata.description;
   return (
     <Helmet
-      htmlAttributes={{ lang: 'en' }}
+      htmlAttributes={{ lang: site.siteMetadata.language }} // 'en'
       title={title}
       defaultTitle={site.siteMetadata.title}
       meta={[
@@ -45,11 +45,11 @@ function Seo({ description, title }) {
         },
         {
           property: 'og:author',
-          content: site.siteMetadata.author.name,
+          content: site.siteMetadata.author,
         },
         {
           property: 'og:image',
-          content: site.siteMetadata.ogImage,
+          content: ogImage, //site.siteMetadata.ogImage,
         },
 
         {
