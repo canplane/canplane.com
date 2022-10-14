@@ -1,6 +1,7 @@
-import { Link } from 'gatsby';
-import React from 'react';
-import './style.scss';
+import React from "react";
+import { Link } from "gatsby";
+
+import "./style.scoped.scss";
 
 function PostHeader({ post, viewCount }) {
   return (

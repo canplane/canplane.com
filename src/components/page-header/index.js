@@ -1,12 +1,17 @@
-import { Link, StaticQuery, graphql } from 'gatsby';
-import React from 'react';
+import React from "react";
+import { Link, StaticQuery, graphql, navigate } from "gatsby";
+
 import Post from '../../models/post';
 import PostSearch from '../post-search';
-import './style.scss';
 
-import AuthorIcon from '/src/assets/author-icon';
 
-function PageHeader({ siteTitle }) {
+import "./style.scoped.scss";
+import AuthorIcon from "/src/assets/icons/author-icon";
+import MenuIcon from "/src/assets/icons/mui/menu-icon";
+import SearchIcon from "/src/assets/icons/mui/search-icon";
+
+
+const PageHeader = ({ siteTitle }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -26,33 +31,30 @@ function PageHeader({ siteTitle }) {
           }
         }
       `}
-      render={(data) => (
+      render={data => (
         <header className="page-header-wrapper">
           <div className="page-header">
-            <div className="front-section">
-              <Link className="link" to="/">
-                <div className="arthor">
-                  <AuthorIcon />
-                  {siteTitle}
-                </div>
-              </Link>
+            <div className="buttons">
+              <button className="button button-arthor">
+                <div className="icon" onClick={() => navigate(`/`)}><AuthorIcon /></div>
+              </button>
             </div>
-            <div className="trailing-section">
-              <Link className="link" to="/about">
-                about
-              </Link>
-              <Link className="link" to="/posts">
-                posts
-              </Link>
-              <PostSearch
-                posts={data.allMarkdownRemark.edges.map(({ node }) => new Post(node, true))}
-              />
+            <div className="buttons right">
+              <button className="button button-search">
+                <div className="icon"><SearchIcon /></div>
+              </button>
+              <button className="button button-menu">
+                <div className="icon"><MenuIcon /></div>
+              </button>
+              {/*<Link className="link" to="/about">about</Link>*/}
+              {/*<Link className="link" to="/posts">posts</Link>*/}
+              {/*<PostSearch posts={data.allMarkdownRemark.edges.map(({ node }) => new Post(node, true))} />*/}
             </div>
           </div>
         </header>
       )}
     />
   );
-}
+};
 
 export default PageHeader;

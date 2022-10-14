@@ -1,18 +1,18 @@
-import { Link } from 'gatsby';
+import { navigate } from 'gatsby';
 import React from 'react';
 import './style.scss';
 
 function PostCard({ post }) {
   const { id, slug, title, excerpt, date, categories } = post;
   return (
-    <div className="post-card-wrapper">
-      <Link className="post-card" key={id} to={slug}>
+    <button className="post-card-wrapper" onClick={() => navigate(slug)}>
+      <div className="post-card" key={id}>
         <div className="title">{title}</div>
         <div className="info">
           <div className="date">{date}</div>
         </div>
-      </Link>
-    </div>
+      </div>
+    </button>
   );
 }
 

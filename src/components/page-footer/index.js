@@ -1,11 +1,12 @@
-import React from 'react';
-import './style.scss';
+import React from "react";
+
+import "./style.scoped.scss";
 
 function PageFooter({ author, githubUrl }) {
   return (
     <footer className="page-footer-wrapper">
       <a href={githubUrl}>
-        <p className="page-footer">© {new Date().getFullYear()} {author}</p>
+        <p className="page-footer">© {new Date().getFullYear()} {author.toUpperCase()}</p>
       </a>
     </footer>
   );

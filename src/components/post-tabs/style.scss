@@ -3,41 +3,34 @@
 
 .post-tabs-wrapper {
   width: 100%;
-  margin-bottom: 27px;
 
   .post-tabs {
+    margin-left: -1rem;
+    margin-bottom: 3rem;
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 
-    margin-bottom: 27px;
-
     .mui-tabs {
       .MuiTab-root {
-        height: 40px;
+        height: 2.5rem;
+        border-radius: 1.25rem;
         min-height: auto;
         min-width: auto;
-        padding: 10px 12px;
+        padding: auto 1rem;
         font-family: $font-family  !important;
         color: var(--primary-text-color);
-        ;
-        font-size: 1.125em;
+
+        font-size: 1.25em;
       }
 
       .Mui-selected {
-        background-color: var(--primary-text-color);
-        ;
-        color: var(--background-color);
-        border-radius: 20px;
-      }
-
-      .MuiTabScrollButton-root {
-        height: 40px;
-        width: 20px;
-      }
-
-      .MuiTabs-scrollable {
-        height: 40px;
+        text-decoration: underline;
+        //text-decoration-color: var(--brand-color);
+        text-decoration-style: solid;
+        text-decoration-thickness: .25rem;
+        text-underline-offset: .5rem;
       }
 
       .MuiTabs-indicator {
@@ -48,18 +41,16 @@
 }
 
 .category-page-header-wrapper {
-  padding-left: .5rem;
+  height: 5rem;
+  margin-left: 1rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 1.5rem 0 1rem 0;
 
   .category-page-title {
     width: fit-content;
-    padding-bottom: 10px;
-    font-size: 1.5rem;
-    text-align: center;
+    font-size: 2.25rem;
   }
 }
