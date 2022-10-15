@@ -17,8 +17,8 @@ const createBlogPages = ({ createPage, results }) => {
       context: {
         // additional data can be passed via context
         slug: node.fields.slug,
-        nextSlug: next?.fields.slug ?? '',
-        prevSlug: previous?.fields.slug ?? '',
+        nextSlug: next?.fields.slug ?? "",
+        prevSlug: previous?.fields.slug ?? "",
       },
     });
   });
@@ -31,7 +31,7 @@ const createPostsPages = ({ createPage, results }) => {
   const { edges } = results.data.allMarkdownRemark;
 
   edges.forEach(({ node }) => {
-    const postCategories = node.frontmatter.categories.split(' ');
+    const postCategories = node.frontmatter.categories.split(" ");
     postCategories.forEach((category) => categorySet.add(category));
   });
 
@@ -40,7 +40,7 @@ const createPostsPages = ({ createPage, results }) => {
   createPage({
     path: `/posts`,
     component: categoryTemplate,
-    context: { currentCategory: 'All', edges, categories },
+    context: { currentCategory: "All", edges, categories },
   });
 
   categories.forEach((currentCategory) => {

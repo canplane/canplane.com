@@ -2,14 +2,15 @@ import React from "react";
 
 import "./style.scoped.scss";
 
-function PageFooter({ author, githubUrl }) {
+
+const PageFooter = ({ author, githubUrl }) => {
   return (
-    <footer className="page-footer-wrapper">
+    <footer className="page-footer-wrap">
       <a href={githubUrl}>
         <p className="page-footer">© {new Date().getFullYear()} {author.toUpperCase()}</p>
       </a>
     </footer>
   );
-}
+};
 
 export default PageFooter;

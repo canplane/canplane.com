@@ -23,7 +23,6 @@
     "gatsby-remark-copy-linked-files": "^5.9.0",
     "gatsby-remark-images": "^6.9.1",
     "gatsby-remark-prismjs": "^6.9.0",
-    "gatsby-remark-responsive-iframe": "^5.9.0",
     "gatsby-remark-smartypants": "^5.9.0",
     "gatsby-remark-table-of-contents": "^2.0.0",
     "gatsby-source-filesystem": "^4.9.1",
@@ -35,7 +34,6 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-rotating-text": "^1.4.1",
-    "react-scoped-css": "^0.0.23",
     "sass": "^1.43.4",
     "typeface-montserrat": "^1.1.13"
   },

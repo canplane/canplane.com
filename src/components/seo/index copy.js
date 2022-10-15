@@ -1,10 +1,11 @@
-import { useStaticQuery, graphql } from 'gatsby';
-import React from 'react';
-import { Helmet } from 'react-helmet';
+import { useStaticQuery, graphql } from "gatsby";
+import React from "react";
+import { Helmet } from "react-helmet";
 
-import ogImage from '/src/assets/og-image.png';
+import ogImage from "/src/assets/og-image.png";
 
-function Seo({ description, title }) {
+
+const Seo = ({ description, title }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -22,7 +23,7 @@ function Seo({ description, title }) {
   const metaDescription = description || site.siteMetadata.description;
   return (
     <Helmet
-      htmlAttributes={{ lang: 'en' }}
+      htmlAttributes={{ lang: "en" }}
       title={title}
       defaultTitle={site.siteMetadata.title}
       meta={[
@@ -43,11 +44,11 @@ function Seo({ description, title }) {
           content: metaDescription,
         },
         {
-          property: 'og:author',
+          property: "og:author",
           content: site.siteMetadata.author,
         },
         {
-          property: 'og:image',
+          property: "og:image",
           content: ogImage, //site.siteMetadata.ogImage,
         },
 
@@ -58,6 +59,6 @@ function Seo({ description, title }) {
       ]}
     />
   );
-}
+};
 
 export default Seo;

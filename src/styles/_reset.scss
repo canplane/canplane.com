@@ -120,7 +120,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 table {
@@ -173,6 +173,8 @@ body * {
 }
 
 
+
+/** custom */
 a,
 button {
   cursor: pointer;
@@ -184,4 +186,11 @@ button {
 }
 .right {
   margin-left: auto !important;
+}
+.noscroll {
+  margin: 0 !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  touch-action: none !important;
+  --webkit-overflow-scrolling: none;
 }

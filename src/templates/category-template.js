@@ -1,12 +1,13 @@
-import React, { useMemo, useCallback } from 'react';
-import { navigate } from 'gatsby';
+import React, { useMemo, useCallback } from "react";
+import { navigate } from "gatsby";
 
-import Layout from '../layout';
-import Seo from '../components/seo';
-import Post from '../models/post';
-import PostTabs from '../components/post-tabs';
+import Layout from "../layout";
+import Seo from "../components/seo";
+import Post from "../models/post";
+import PostTabs from "../components/post-tabs";
 
-function CategoryTemplate({ pageContext }) {
+
+const CategoryTemplate = ({ pageContext }) => {
   const { edges, currentCategory } = pageContext;
   const { categories } = pageContext;
   const currentTabIndex = useMemo(
@@ -34,6 +35,6 @@ function CategoryTemplate({ pageContext }) {
       />
     </Layout>
   );
-}
+};
 
 export default CategoryTemplate;

@@ -1,7 +1,8 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
 
-.post-card-wrapper {
+
+.post-card-wrap {
   min-height: 150px;
   width: 100%;
   display: flex;

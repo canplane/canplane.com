@@ -1,11 +1,13 @@
-import { navigate } from 'gatsby-link';
-import React, { useCallback } from 'react';
-import PostCard from '../post-card';
-import './style.scss';
+import React, { useCallback } from "react";
 
-function PostCardColumn({ posts }) {
+import PostCard from "../post-card";
+
+import "./style.scss";
+
+
+const PostCardColumn = ({ posts }) => {
   return (
-    <div className="post-card-column-wrapper grid-24">
+    <div className="post-card-column-wrap grid-24">
       <div className="post-card-column">
         {posts.map((post, index) => (
           <PostCard key={index} post={post} />
@@ -13,6 +15,6 @@ function PostCardColumn({ posts }) {
       </div>
     </div>
   );
-}
+};
 
 export default PostCardColumn;

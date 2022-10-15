@@ -1,6 +1,14 @@
-@use '../../styles/mixins' as *;
+@use "../../styles/mixins" as *;
 
-.page-header-wrapper {
+.page-header-wrap {
+  pointer-events: none;
+  .page-header {
+    &>* {
+      pointer-events: auto;
+    }
+  }
+}
+.page-header-wrap {
   z-index: 10;
   position: fixed;
   top: 0;
@@ -10,6 +18,7 @@
   display: flex;
   padding: 1rem;
 
+  pointer-events: none;
   .page-header {
     width: 100%;
     
@@ -17,32 +26,49 @@
     align-items: center;
     height: 3rem;
 
-    .icon {
-      height: 3rem;
-      width: 3rem;
-      &>svg {
-        height: 1.75rem;
-        width: 1.75rem;
-        fill: var(--primary-text-color);
+    .buttons {
+      .button + .button {
+        margin-left: .5rem;
       }
-    }
+      .button.button-author {
+        padding: .25rem;
 
-    .button + .button {
-      margin-left: .5rem;
-    }
-    .button.button-brand {
-      padding: .25rem;
-
-      .brand {
-        height: 2.5rem;
-        width: 2.5rem;
-        background-color: var(--brand-color);
-        &>svg {
-          width: 2.5rem;
+        .author {
           height: 2.5rem;
-          fill: var(--background-color);
+          width: 2.5rem;
+          background-color: var(--author-color);
+
+          &>svg {
+            width: 2.5rem;
+            height: 2.5rem;
+            fill: var(--background-color);
+          }
+        }
+        @media (prefers-color-scheme: dark) {
+          .author {
+            background-color: var(--background-color);
+            &>svg {
+              border: 1px solid var(--primary-text-color);
+              fill: var(--primary-text-color);
+            }
+          }
         }
       }
+    }
+  }
+
+  transition: top .25s ease;
+  &[data-hidden=true] {
+    top: -5rem;
+  }
+
+  .icon {
+    height: 3rem;
+    width: 3rem;
+    &>svg {
+      height: 1.75rem;
+      width: 1.75rem;
+      fill: var(--primary-text-color);
     }
   }
 }

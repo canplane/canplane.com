@@ -1,10 +1,12 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import Layout from '../layout';
-import Seo from '../components/seo';
-import Bio from '../components/bio';
+import React from "react";
+import { graphql } from "gatsby";
 
-function AboutPage({ data }) {
+import Layout from "../layout";
+import Seo from "../components/seo";
+import Bio from "../components/bio";
+
+
+const AboutPage = ({ data }) => {
   const metaData = data.site.siteMetadata;
   const { bio, social } = metaData;
   return (
@@ -13,7 +15,7 @@ function AboutPage({ data }) {
       <Bio bio={bio} social={social} />
     </Layout>
   );
-}
+};
 
 export default AboutPage;
 

@@ -2,7 +2,7 @@
 @use "../../styles/mixins" as *;
 
 
-.menu.search {
+.menu.nav {
   z-index: 1;
 
   pointer-events: none;
@@ -23,7 +23,7 @@
     }
   }
 }
-.menu.search {
+.menu.nav {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -36,8 +36,7 @@
     right: 1rem;
   }
 
-  padding-top: 5rem;
-  &>.search-wrap {
+  &>.nav-wrap {
     position: absolute;
     top: 5rem;
     bottom: 0;
@@ -48,41 +47,16 @@
       right: 25%;
     }
 
-    &>.search-box {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  
-      height: 4rem;
-      border-bottom: .1875rem solid var(--primary-text-color);
-  
-      position: relative;
-      &>.icon.icon-search {
-        position: absolute;
-        left: 0;
-        height: 100%;
-        width: auto;
-        margin-right: .75rem;
-      }
-      &>.search-input {
-        font-size: 1.5rem;
-        height: 100%;
-        width: calc(100% - 3rem - 2rem);
-        text-align: center;
-      }
-    }
-    &>.auto-complete-list {
-      padding-top: 2rem;
-
+    &>.nav-list {
       display: flex;
       flex-direction: column;
-  
-      &>.auto-complete-item {
+
+      &>.nav-item {
         height: 4rem;
         display: flex;
         align-items: center;
         //border-bottom: .1875rem solid var(--border-color);
-  
+
         &>p {
           width: 100%;
           font-size: 1.5rem;

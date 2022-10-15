@@ -1,16 +1,18 @@
-import React, { useCallback, useState } from 'react';
-import { graphql } from 'gatsby';
-import Layout from '../layout';
-import Seo from '../components/seo';
-import Post from '../models/post';
+import React, { useState, useCallback } from "react";
+import { graphql } from "gatsby";
 
-import { getUniqueCategories } from '../utils/helpers';
-import PostTabs from '../components/post-tabs';
+import { getUniqueCategories } from "../utils/helpers";
 
-function HomePage({ data }) {
+import Layout from "../layout";
+import Seo from "../components/seo";
+import Post from "../models/post";
+import PostTabs from "../components/post-tabs";
+
+
+const HomePage = ({ data }) => {
   const posts = data.allMarkdownRemark.edges.map(({ node }) => new Post(node));
-  const categories = ['All', ...getUniqueCategories(posts)];
-  const featuredTabIndex = categories.findIndex((category) => category === 'featured');
+  const categories = ["All", ...getUniqueCategories(posts)];
+  const featuredTabIndex = categories.findIndex((category) => category === "featured");
   const [tabIndex, setTabIndex] = useState(featuredTabIndex === -1 ? 0 : featuredTabIndex);
   const onTabIndexChange = useCallback((e, value) => setTabIndex(value), []);
 
@@ -25,7 +27,7 @@ function HomePage({ data }) {
       />
     </Layout>
   );
-}
+};
 
 export default HomePage;
 

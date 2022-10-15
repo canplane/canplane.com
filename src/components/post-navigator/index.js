@@ -1,11 +1,13 @@
-import { Link } from 'gatsby';
-import React from 'react';
-import './style.scss';
+import { Link } from "gatsby";
+import React from "react";
 
-function PostNavigator({ prevPost, nextPost }) {
+import "./style.scss";
+
+
+const PostNavigator = ({ prevPost, nextPost }) => {
   return (
     <div className="post-navigator">
-      <div className="post-navigator-card-wrapper">
+      <div className="post-navigator-card-wrap">
         {nextPost && (
           <Link className="post-card prev" key={nextPost.id} to={nextPost.slug}>
             <div className="direction">이전 글</div>
@@ -13,7 +15,7 @@ function PostNavigator({ prevPost, nextPost }) {
           </Link>
         )}
       </div>
-      <div className="post-navigator-card-wrapper">
+      <div className="post-navigator-card-wrap">
         {prevPost && (
           <Link className="post-card next" key={prevPost.id} to={prevPost.slug}>
             <div className="direction">다음 글</div>
@@ -23,6 +25,6 @@ function PostNavigator({ prevPost, nextPost }) {
       </div>
     </div>
   );
-}
+};
 
 export default PostNavigator;

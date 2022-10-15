@@ -1,8 +1,8 @@
-import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import PageHeader from '../components/page-header';
-import PageFooter from '../components/page-footer';
-import './style.scss';
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import PageHeader from "../components/page-header";
+import PageFooter from "../components/page-footer";
+import "./style.scss";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
   const { title, author, social } = data.site.siteMetadata;
 
   return (
-    <div className="page-wrapper">
+    <div className="page-wrap">
       <PageHeader siteTitle={title || `Title`} />
       <main className="page-content">{children}</main>
       <PageFooter

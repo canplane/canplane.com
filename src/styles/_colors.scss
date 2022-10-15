@@ -9,7 +9,7 @@ html {
 
   --brand-color: #b71c1c;
 
-  --border-color: #eee;
+  --border-color: rgba(0, 0, 0, .075);
   --float-background-color: rgba(255, 255, 255, .75);
 
   --button-background-color: #f3f3f4;
@@ -40,8 +40,6 @@ html {
     --secondary-text-color: #999;
     --tertiary-text-color: #777;
     --content-text-color: #fff;
-
-    --brand-color: #fff;
 
     --border-color: rgba(255, 255, 255, .075);
     --float-background-color: rgba(30, 32, 34, .75);

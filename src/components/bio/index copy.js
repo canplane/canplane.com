@@ -1,15 +1,17 @@
-import React from 'react';
-import ReactRotatingText from 'react-rotating-text';
-import IconButtonBar from '../icon-button-bar';
-import Image from '../image';
-import './style.scss';
+import React from "react";
+import ReactRotatingText from "react-rotating-text";
+import IconButtonBar from "../icon-button-bar";
+import Image from "../image";
 
-function Bio({ author, language = 'ko' }) {
+import "./style.scss";
+
+
+const Bio = ({ author, language = "ko" }) => {
   if (!author) return null;
   const { bio, social, name } = author;
   return (
     <div className="bio">
-      {language === 'ko' ? (
+      {language === "ko" ? (
         <div className="introduction korean">
           <p className="title">
             안녕하세요.
@@ -34,7 +36,7 @@ function Bio({ author, language = 'ko' }) {
             .<br />
           </p>
           <p className="description">
-            I'm a {bio.role} <ReactRotatingText items={bio.description} />
+            I"m a {bio.role} <ReactRotatingText items={bio.description} />
             <br />
           </p>
           <div className="social-links">
@@ -42,11 +44,11 @@ function Bio({ author, language = 'ko' }) {
           </div>
         </div>
       )}
-      <div className="thumbnail-wrapper">
+      <div className="thumbnail-wrap">
         <Image style={{ width: 250, height: 250 }} src={bio.thumbnail} alt="thumbnail" />
       </div>
     </div>
   );
-}
+};
 
 export default Bio;

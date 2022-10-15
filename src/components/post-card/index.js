@@ -1,11 +1,13 @@
-import { navigate } from 'gatsby';
-import React from 'react';
-import './style.scss';
+import { navigate } from "gatsby";
+import React from "react";
 
-function PostCard({ post }) {
+import "./style.scss";
+
+
+const PostCard = ({ post }) => {
   const { id, slug, title, excerpt, date, categories } = post;
   return (
-    <button className="post-card-wrapper" onClick={() => navigate(slug)}>
+    <button className="post-card-wrap" onClick={() => navigate(slug)}>
       <div className="post-card" key={id}>
         <div className="title">{title}</div>
         <div className="info">
@@ -14,6 +16,6 @@ function PostCard({ post }) {
       </div>
     </button>
   );
-}
+};
 
 export default PostCard;

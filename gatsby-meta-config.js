@@ -3,7 +3,7 @@ module.exports = {
   description: `🚀`,
   language: `ko`, // `ko`, `en` => currently support versions for Korean and English
   siteUrl: `https://canplane.com`,
-  //ogImage: `/og-image.png`, // Path to your in the 'static' folder
+  //ogImage: `/og-image.png`, // Path to your in the "static" folder
   comments: {
     utterances: {
       repo: `canplane/canplane.com-comments`,
@@ -15,7 +15,7 @@ module.exports = {
   author: `canplane`,
   bio: {
     name: `Sanghoon Lee`,
-    description: `I'm a student interested in EECS.`,
+    description: `I"m a student interested in EECS.`,
   },
   social: {
     //resume: `/cv.pdf`,

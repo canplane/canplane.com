@@ -1,6 +1,7 @@
-@use '../../styles/mixins'as *;
+@use "../../styles/mixins"as *;
 
-.section-header-wrapper {
+
+.section-header-wrap {
   display: flex;
   justify-content: center;
   width: 100%;

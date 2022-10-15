@@ -11,6 +11,6 @@ export default class Post {
     this.title = title;
     this.author = author;
     this.date = date;
-    this.categories = categories.split(' ');
+    this.categories = categories.split(" ");
   }
 }

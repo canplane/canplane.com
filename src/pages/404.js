@@ -6,7 +6,7 @@ import Seo from "../components/seo";
 
 const NotFoundPage = () => {
   const PIC_TEXT = `(╯°□°）╯︵ ┻━┻`;
-  const DESCRIPTION = `Page not found`;
+  const DESCRIPTION = `Page not found!`;
 
   return (
     <Layout>

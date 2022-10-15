@@ -1,7 +1,8 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
 
-.post-card-wrapper {
+
+.post-card-wrap {
   border-bottom: .1875rem solid var(--border-color);
 
   height: 5rem;

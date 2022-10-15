@@ -1,9 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, forwardRef, useImperativeHandle } from "react";
 import { navigate } from "gatsby";
 
 import "./style.scss";
 import SearchIcon from "/src/assets/icons/mui/search-icon";
 import CloseIcon from "/src/assets/icons/mui/close-icon";
+
+
+const NoScroll = () => {
+  useEffect(() => {
+    const bodyDOM = document.body;
+    bodyDOM.classList.add("noscroll");
+    return () => bodyDOM.classList.remove("noscroll");
+  }, []);
+  
+  return <></>;
+};
 
 
 const AutoCompleteList = ({ posts }) => {
@@ -17,51 +28,47 @@ const AutoCompleteList = ({ posts }) => {
     </div>
   );
 };
-
 const SearchBox = ({ posts }) => {
   const [tf, setTf] = useState("");
-
   const makeAutoCompleteList = () => {
-    if (tf.trim() === "")
+    const a = tf.trim().toLowerCase();
+    if (a === "")
       return [];
     else
       return posts.reduce((acc, cur, idx) => {
-        if (cur.title?.includes(tf))
+        let b = cur.title?.trim().toLowerCase();
+        if (b.includes(a))
           acc.push(cur);
         return acc.slice(0, 10);
       }, []);
   };
-
   return (
-    <>
+    <div className="search-wrap">
       <div className="search-box" onClick={e => e.stopPropagation()}>
         <div className="icon icon-search"><SearchIcon /></div>
         <input className="search-input" type="text" value={tf} onChange={e => setTf(e.target.value)} autoFocus />
       </div>
       <AutoCompleteList posts={makeAutoCompleteList(posts)} />
-    </>
-  );
-};
 
-
-const PostSearch = ({ posts }) => {
-  const [open, setOpen] = useState(false);
-
-  const toggleOpen = e => {
-    e.stopPropagation();
-    setOpen(!open);
-  };
-
-  return (
-    <div className="menu search" data-open={open} onClick={() => setOpen(false)}>
-      <button className="button search" onClick={e => toggleOpen(e)}>
-        <div className="icon">{open ? <CloseIcon /> : <SearchIcon />}</div>
-      </button>
-      <div className="search-box-wrapper">
-        { open && <SearchBox posts={posts} />}
-      </div>
+      <NoScroll />
     </div>
   );
 };
 
-export default PostSearch;
+const MenuSearch = forwardRef(({ posts }, ref) => {
+  const [open, setOpen] = useState(false);
+  const show = () => setOpen(true);
+  const hide = () => setOpen(false);
+  useImperativeHandle(ref, () => ({ show, hide }));
+
+  return (
+    <div className="menu search" data-open={open} onClick={() => setOpen(false)}>
+      <button className="button close" onClick={hide}>
+        <div className="icon"><CloseIcon /></div>
+      </button>
+      {open && <SearchBox posts={posts} />}
+    </div>
+  );
+});
+
+export default MenuSearch;

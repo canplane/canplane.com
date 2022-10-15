@@ -1,11 +1,13 @@
-import { Link } from 'gatsby';
-import React from 'react';
-import './style.scss';
+import { Link } from "gatsby";
+import React from "react";
 
-function PostCard({ post }) {
+import "./style.scss";
+
+
+const PostCard = ({ post }) => {
   const { id, slug, title, excerpt, date, categories } = post;
   return (
-    <div className="post-card-wrapper">
+    <div className="post-card-wrap">
       <Link className="post-card" key={id} to={slug}>
         <div className="title">{title}</div>
         <p className="description" dangerouslySetInnerHTML={{ __html: excerpt }} />
@@ -22,6 +24,6 @@ function PostCard({ post }) {
       </Link>
     </div>
   );
-}
+};
 
 export default PostCard;

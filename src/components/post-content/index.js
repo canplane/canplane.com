@@ -1,12 +1,14 @@
-import React from 'react';
-import './style.scss';
+import React from "react";
 
-function PostContent({ html }) {
+import "./style.scss";
+
+
+const PostContent = ({ html }) => {
   return (
     <div className="post-content">
       <div className="markdown" dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   );
-}
+};
 
 export default PostContent;
