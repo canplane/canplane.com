@@ -5,52 +5,21 @@
   width: 100%;
 
   .post-tabs {
-    margin-left: -1rem;
-    margin-bottom: 3rem;
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 
-    .mui-tabs {
-      .MuiTab-root {
-        height: 2.5rem;
-        border-radius: 1.25rem;
-        min-height: auto;
-        min-width: auto;
-        padding: auto 1rem;
-        font-family: $font-family  !important;
-        color: var(--primary-text-color);
-
-        font-size: 1.25em;
-      }
-
-      .Mui-selected {
-        text-decoration: underline;
-        //text-decoration-color: var(--brand-color);
-        text-decoration-style: solid;
-        text-decoration-thickness: .25rem;
-        text-underline-offset: .5rem;
-      }
-
-      .MuiTabs-indicator {
-        display: none;
+    .category-page-header-wrapper {
+      height: 5rem;
+    
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    
+      .category-page-title {
+        width: fit-content;
+        font-size: 2.25rem;
       }
     }
-  }
-}
-
-.category-page-header-wrapper {
-  height: 5rem;
-  margin-left: 1rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  .category-page-title {
-    width: fit-content;
-    font-size: 2.25rem;
   }
 }

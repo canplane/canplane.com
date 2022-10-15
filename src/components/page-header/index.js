@@ -1,17 +1,27 @@
 import React from "react";
-import { Link, StaticQuery, graphql, navigate } from "gatsby";
+import { StaticQuery, graphql, navigate } from "gatsby";
 
-import Post from '../../models/post';
-import PostSearch from '../post-search';
+import Post from "../../models/post";
+import MenuCategory from "../menu-category";
+import MenuSearch from "../menu-search";
 
 
-import "./style.scoped.scss";
-import AuthorIcon from "/src/assets/icons/author-icon";
-import MenuIcon from "/src/assets/icons/mui/menu-icon";
-import SearchIcon from "/src/assets/icons/mui/search-icon";
+import "./style.scss";
+import BrandIcon from "/src/assets/icons/brand-icon";
 
 
 const PageHeader = ({ siteTitle }) => {
+  const getAllCategories = edges => {
+    const categorySet = new Set(['All']);
+    edges.forEach(({ node }) => {
+      const postCategories = node.frontmatter.categories.split(' ');
+      postCategories.forEach((category) => categorySet.add(category));
+    });
+    const categories = [...categorySet];
+    return categories;
+  };
+
+
   return (
     <StaticQuery
       query={graphql`
@@ -31,28 +41,26 @@ const PageHeader = ({ siteTitle }) => {
           }
         }
       `}
-      render={data => (
-        <header className="page-header-wrapper">
-          <div className="page-header">
-            <div className="buttons">
-              <button className="button button-arthor">
-                <div className="icon" onClick={() => navigate(`/`)}><AuthorIcon /></div>
-              </button>
+      render={data => {
+        const { edges } = data.allMarkdownRemark;
+        const categories = getAllCategories(edges);
+
+        return (
+          <header className="page-header-wrapper">
+            <div className="page-header">
+              <div className="buttons">
+                <button className="button button-brand">
+                  <div className="brand" onClick={() => navigate(`/`)}><BrandIcon /></div>
+                </button>
+              </div>
+              <div className="right">
+                <MenuSearch posts={edges.map(({ node }) => new Post(node, true))} />
+                <MenuCategory categories={categories} />
+              </div>
             </div>
-            <div className="buttons right">
-              <button className="button button-search">
-                <div className="icon"><SearchIcon /></div>
-              </button>
-              <button className="button button-menu">
-                <div className="icon"><MenuIcon /></div>
-              </button>
-              {/*<Link className="link" to="/about">about</Link>*/}
-              {/*<Link className="link" to="/posts">posts</Link>*/}
-              {/*<PostSearch posts={data.allMarkdownRemark.edges.map(({ node }) => new Post(node, true))} />*/}
-            </div>
-          </div>
-        </header>
-      )}
+          </header>
+        );
+      }}
     />
   );
 };

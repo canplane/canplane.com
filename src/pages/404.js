@@ -1,16 +1,22 @@
-import React from 'react';
+import React from "react";
 
-import Layout from '../layout';
-import Seo from '../components/seo';
+import Layout from "../layout";
+import Seo from "../components/seo";
 
-function NotFoundPage() {
+
+const NotFoundPage = () => {
+  const PIC_TEXT = `(╯°□°）╯︵ ┻━┻`;
+  const DESCRIPTION = `Page not found`;
+
   return (
     <Layout>
-      <Seo title="404: Not found" />
-      <h1>404: Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      <Seo title="404" />
+      <div className="not-found">
+        <p className="pic-text" >{PIC_TEXT}</p>
+        <p className="description">{DESCRIPTION}</p>
+      </div>
     </Layout>
   );
-}
+};
 
 export default NotFoundPage;

@@ -25,7 +25,7 @@ categories: history
     </li>
     <li class="grid grid-34">
         <h6 class="grid-3">작업 기간</h6>
-        <p class="grid-4">2015. 6. 5. ~ 11., 2022. 7. 8. ~ 30.</p>
+        <p class="grid-4">2015. 6. 5. ~ 16., 2022. 7. 8. ~ 30.</p>
     </li>
     <li class="grid grid-34">
         <h6 class="grid-3">사용 기술</h6>

@@ -22,7 +22,6 @@ function HomePage({ data }) {
         onChange={onTabIndexChange}
         tabs={categories}
         tabIndex={tabIndex}
-        showMoreButton
       />
     </Layout>
   );

@@ -10,6 +10,7 @@ html {
   --brand-color: #b71c1c;
 
   --border-color: #eee;
+  --float-background-color: rgba(255, 255, 255, .75);
 
   --button-background-color: #f3f3f4;
   --button-text-color: #363f47;
@@ -42,7 +43,9 @@ html {
 
     --brand-color: #fff;
 
-    --border-color: rgb(47, 49, 50);
+    --border-color: rgba(255, 255, 255, .075);
+    --float-background-color: rgba(30, 32, 34, .75);
+    
 
     --button-background-color: #444c56;
     --button-text-color: #363f47;

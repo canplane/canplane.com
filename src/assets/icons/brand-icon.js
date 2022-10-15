@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AuthorIcon = () => {
+const BrandIcon = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480">
       <path d="M308.21,350.59c-3.56-20.21-20.87-34-38.66-30.91s-29.32,22.06-25.76,42.26,20.87,34,38.66,30.91S311.77,370.79,308.21,350.59Zm-33,33.83c-11.4,2-22.78-8.52-25.43-23.53s4.45-28.78,15.85-30.79,22.78,8.52,25.42,23.52S286.56,382.41,275.17,384.42Z" />
@@ -18,4 +18,4 @@ const AuthorIcon = () => {
   );
 };
 
-export default AuthorIcon;
+export default BrandIcon;

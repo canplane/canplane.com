@@ -26,7 +26,8 @@ const createBlogPages = ({ createPage, results }) => {
 
 const createPostsPages = ({ createPage, results }) => {
   const categoryTemplate = require.resolve(`./src/templates/category-template.js`);
-  const categorySet = new Set(['All']);
+
+  const categorySet = new Set(["All"]);
   const { edges } = results.data.allMarkdownRemark;
 
   edges.forEach(({ node }) => {

@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "gatsby";
 
-import "./style.scoped.scss";
+import "./style.scss";
 
-function PostHeader({ post, viewCount }) {
+
+const PostHeader = ({ post, viewCount }) => {
   return (
     <header className="post-header grid">
       <h1 className="title grid-12">{post.title}</h1>
@@ -13,5 +13,6 @@ function PostHeader({ post, viewCount }) {
       </div>
     </header>
   );
-}
+};
+
 export default PostHeader;
