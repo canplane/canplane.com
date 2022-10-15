@@ -43,8 +43,8 @@ const SearchBox = ({ posts }) => {
       }, []);
   };
   return (
-    <div className="search-wrapper">
-      <div className="search-box" onClick={e => e.stopPropagation()}>
+    <div className="search-wrapper" onClick={e => e.stopPropagation()}>
+      <div className="search-box">
         <div className="icon icon-search"><SearchIcon /></div>
         <input className="search-input" type="text" value={tf} onChange={e => setTf(e.target.value)} autoFocus />
       </div>
