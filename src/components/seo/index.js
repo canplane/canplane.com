@@ -50,7 +50,7 @@ const Seo = ({ description, title }) => {
         },
         {
           property: "og:image",
-          content: ogImage, //site.siteMetadata.ogImage,
+          content: ogImage,
         },
 
         {

@@ -5,7 +5,7 @@ import "./style.scoped.scss";
 
 const PageFooter = ({ author, githubUrl }) => {
   return (
-    <footer className="page-footer-wrap">
+    <footer className="page-footer-wrapper">
       <a href={githubUrl}>
         <p className="page-footer">© {new Date().getFullYear()} {author.toUpperCase()}</p>
       </a>

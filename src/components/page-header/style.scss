@@ -1,6 +1,7 @@
 @use "../../styles/mixins" as *;
 
-.page-header-wrap {
+
+.page-header-wrapper {
   pointer-events: none;
   .page-header {
     &>* {
@@ -8,7 +9,7 @@
     }
   }
 }
-.page-header-wrap {
+.page-header-wrapper {
   z-index: 10;
   position: fixed;
   top: 0;
@@ -36,8 +37,7 @@
         .author {
           height: 2.5rem;
           width: 2.5rem;
-          background-color: var(--author-color);
-
+          background-color: var(--brand-color);
           &>svg {
             width: 2.5rem;
             height: 2.5rem;

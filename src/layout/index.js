@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
   const { title, author, social } = data.site.siteMetadata;
 
   return (
-    <div className="page-wrap">
+    <div className="page-wrapper">
       <PageHeader siteTitle={title || `Title`} />
       <main className="page-content">{children}</main>
       <PageFooter

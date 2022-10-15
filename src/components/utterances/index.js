@@ -34,7 +34,7 @@ const Utterances = ({ repo, path }) => {
   }, [repo, rootElm, path]);
 
   return (
-    <div className="utterances-wrap grid">
+    <div className="utterances-wrapper grid">
       <div className="utterances grid-24" ref={rootElm} />
     </div>
   );

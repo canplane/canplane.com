@@ -6,7 +6,7 @@ import MenuSearch from "../menu-search";
 import MenuNav from "../menu-nav";
 
 import "./style.scss";
-import AuthorIcon from "/src/assets/icons/author-icon";
+import AuthorIcon from "/src/assets/brand/author-icon";
 import SearchIcon from "/src/assets/icons/mui/search-icon";
 import MenuIcon from "/src/assets/icons/mui/menu-icon";
 
@@ -79,7 +79,7 @@ const PageHeader = ({ siteTitle }) => {
         const categories = getAllCategories(edges);
 
         return (
-          <header className="page-header-wrap" data-hidden={hidden}>
+          <header className="page-header-wrapper" data-hidden={hidden}>
             <div className="page-header">
               <div className="buttons">
                 <button className="button button-author">

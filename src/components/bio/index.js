@@ -1,14 +1,14 @@
 import React from "react";
 
 import "./style.scss";
-import authorSymbolImage from "/src/assets/author-symbol.svg";
+import authorSymbolImage from "/src/assets/brand/author-symbol.svg";
 import IconButtonBar from "../icon-button-bar";
 
 
 
 const Bio = ({ bio, social }) => {
   return (
-    <div className="bio-wrap">
+    <div className="bio-wrapper">
       <div className="bio">
         <img className="logo" alt="logo" src={authorSymbolImage} />
         <div className="introduction">

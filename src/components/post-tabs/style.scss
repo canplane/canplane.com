@@ -1,7 +1,8 @@
 @use "../../styles/mixins" as *;
 @use "../../styles/variables" as *;
 
-.post-tabs-wrap {
+
+.post-tabs-wrapper {
   width: 100%;
 
   .post-tabs {
@@ -9,7 +10,7 @@
     flex-direction: column;
     align-items: flex-start;
 
-    .category-page-header-wrap {
+    .category-page-header-wrapper {
       height: 5rem;
     
       display: flex;

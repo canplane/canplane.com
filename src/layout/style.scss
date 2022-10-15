@@ -6,6 +6,7 @@
 @use "../styles/grid" as *;
 @use "../styles/pretendard" as *;
 
+
 * {
     box-sizing: border-box;
     appearance: none;
@@ -37,7 +38,7 @@ a {
     color: var(--link-text-color);
 }
 
-.page-wrap {
+.page-wrapper {
     position: relative;
 
     display: flex;

@@ -7,7 +7,7 @@ import "./style.scss";
 
 const PostCardColumn = ({ posts }) => {
   return (
-    <div className="post-card-column-wrap grid-24">
+    <div className="post-card-column-wrapper grid-24">
       <div className="post-card-column">
         {posts.map((post, index) => (
           <PostCard key={index} post={post} />

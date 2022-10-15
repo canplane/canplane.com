@@ -12,9 +12,9 @@ const PostTabs = ({ tabIndex, onChange, tabs, posts }) => {
   }, [posts, tabs, tabIndex]);
 
   return (
-    <div className="post-tabs-wrap grid">
+    <div className="post-tabs-wrapper grid">
       <div className="post-tabs grid-1">
-        <div className="category-page-header-wrap">
+        <div className="category-page-header-wrapper">
           <p className="category-page-title">{tabs[tabIndex]}</p>
         </div>
       </div>

@@ -18,7 +18,7 @@ const NoScroll = () => {
 
 const NavList = ({ categories }) => {
   return (
-    <div className="nav-wrap">
+    <div className="nav-wrapper">
       <div className="nav-list">
         {categories.map((category, idx) => (
           <button className="nav-item" key={idx} onClick={() => navigate(`/posts/${idx === 0 ? "" : category}`)}>
