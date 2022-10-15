@@ -2,7 +2,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import React from "react";
 import { Helmet } from "react-helmet";
 
-import ogImage from "/src/assets/og-image.png";
+import ogImage from "/src/assets/brand/og-image.png";
 
 
 const Seo = ({ description, title }) => {

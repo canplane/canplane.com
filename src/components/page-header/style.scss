@@ -31,10 +31,10 @@
       .button + .button {
         margin-left: .5rem;
       }
-      .button.button-author {
+      .button.button-logo {
         padding: .25rem;
 
-        .author {
+        .logo {
           height: 2.5rem;
           width: 2.5rem;
           background-color: var(--brand-color);
@@ -45,7 +45,7 @@
           }
         }
         @media (prefers-color-scheme: dark) {
-          .author {
+          .logo {
             background-color: var(--background-color);
             &>svg {
               border: 1px solid var(--primary-text-color);

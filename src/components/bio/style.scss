@@ -31,6 +31,12 @@ strong {
 
     //@include content-max-width;
 
+    .logo {
+      @media (prefers-color-scheme: dark) {
+        filter: grayscale(100%);
+      }
+    }
+
     .introduction {
       display: flex;
       flex-direction: column;
@@ -47,8 +53,8 @@ strong {
       line-height: 1.25;
 
       .description {
-        margin-top: .75rem;
-        font-size: 1.25rem;
+        margin-top: 1rem;
+        font-size: 1.5rem;
       }
 
       .social-links {

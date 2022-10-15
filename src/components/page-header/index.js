@@ -82,8 +82,8 @@ const PageHeader = ({ siteTitle }) => {
           <header className="page-header-wrapper" data-hidden={hidden}>
             <div className="page-header">
               <div className="buttons">
-                <button className="button button-author">
-                  <div className="author" onClick={() => navigate(`/`)}><AuthorIcon /></div>
+                <button className="button button-logo">
+                  <div className="logo" onClick={() => navigate(`/`)}><AuthorIcon /></div>
                 </button>
               </div>
               <div className="buttons right">
