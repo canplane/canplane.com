@@ -13,8 +13,9 @@ import MenuIcon from "/src/assets/icons/mui/menu-icon";
 
 const ScrollMonitor = forwardRef((_, ref) => {
   const [direction, setScrollDirection] = useState(0);
+
   const THRESHOLD = 5;
-  let lastScrollY = window.pageYOffset;
+  let lastScrollY;
   const updateScrollDirection = () => {
     const scrollY = window.pageYOffset;   // same as window.scrollY
     const windowHeight = window.innerHeight;
@@ -29,6 +30,7 @@ const ScrollMonitor = forwardRef((_, ref) => {
     lastScrollY = scrollY;
   };
   useEffect(() => {
+    lastScrollY = window.pageYOffset;
     window.addEventListener("scroll", updateScrollDirection);
     return () => window.removeEventListener("scroll", updateScrollDirection);
   });
