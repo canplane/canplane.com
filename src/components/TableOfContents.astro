@@ -1,0 +1,17 @@
+---
+import TocList from "./TocList.astro";
+import { buildToc } from "../utils/posts";
+import type { MarkdownHeading } from "astro";
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+const { headings } = Astro.props;
+const toc = buildToc(headings);
+---
+
+{toc.length > 0 && (
+  <nav class="table-of-contents">
+    <TocList nodes={toc} />
+  </nav>
+)}

@@ -1,0 +1,62 @@
+---
+import { formatDate } from "../utils/posts";
+import type { Post } from "../utils/posts";
+
+interface Props {
+  post: Post;
+}
+const { post } = Astro.props;
+const href = `/${post.slug}/`;
+---
+
+<a class="post-card-wrapper" href={href}>
+  <div class="post-card">
+    <div class="title">{post.data.title}</div>
+    <div class="info">
+      <div class="date">{formatDate(post.data.date)}</div>
+    </div>
+  </div>
+</a>
+
+<style lang="scss">
+  .post-card-wrapper {
+    border-bottom: 0.1875rem solid var(--border-color);
+
+    height: 5rem;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+    color: inherit;
+
+    .post-card {
+      width: 100%;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .title {
+        color: var(--primary-text-color);
+        font-size: 1.5rem;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        min-width: 0;
+      }
+      .info {
+        margin-left: 1rem;
+        flex-shrink: 0;
+
+        .date {
+          font-size: 1rem;
+          color: var(--secondary-text-color);
+        }
+      }
+    }
+  }
+</style>

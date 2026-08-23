@@ -1,0 +1,93 @@
+---
+import IconButtonBar from "./IconButtonBar.astro";
+
+interface Props {
+  bio: { name: string; description: string };
+  social: Record<string, string | undefined>;
+}
+const { bio, social } = Astro.props;
+---
+
+<div class="bio-wrapper">
+  <div class="bio">
+    <img class="logo" alt="logo" src="/brand/author-symbol.svg" />
+    <div class="introduction">
+      <p class="title">
+        Hello,<br />
+        My name is<br />
+        {bio.name}.<br />
+      </p>
+      <p class="description">
+        {bio.description}<br />
+      </p>
+      <div class="social-links">
+        <IconButtonBar links={social} />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../styles/mixins" as *;
+
+  .bio-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom: 5%;
+
+    .bio {
+      display: grid;
+      justify-content: center;
+
+      @include lg {
+        grid-template-columns: auto auto;
+        grid-gap: 5rem;
+      }
+
+      grid-template-columns: auto;
+      grid-gap: 0;
+
+      .logo {
+        @media (prefers-color-scheme: dark) {
+          filter: grayscale(100%);
+        }
+        display: block;
+        width: 240px;
+      }
+
+      .introduction {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        word-break: keep-all;
+
+        strong {
+          display: inline-block;
+          font-weight: 600;
+        }
+
+        font-size: 3rem;
+        line-height: 1.25;
+
+        .description {
+          margin-top: 1rem;
+          font-size: 1.5rem;
+        }
+
+        .social-links {
+          margin-top: 1.5rem;
+          display: flex;
+          margin-left: -5px;
+        }
+      }
+    }
+  }
+</style>

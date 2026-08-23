@@ -1,0 +1,20 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PostTabs from "../../components/PostTabs.astro";
+import { getAllPosts, getUniqueCategories } from "../../utils/posts";
+
+export async function getStaticPaths() {
+  const posts = await getAllPosts();
+  const categories = getUniqueCategories(posts);
+  return categories.map((category) => ({
+    params: { category },
+    props: { posts: posts.filter((p) => p.data.categories.includes(category)), category },
+  }));
+}
+
+const { posts, category } = Astro.props;
+---
+
+<Layout title="Posts">
+  <PostTabs tabTitle={category} posts={posts} />
+</Layout>

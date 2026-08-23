@@ -1,0 +1,36 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PostHeader from "../../components/PostHeader.astro";
+import Giscus from "../../components/Giscus.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={post.data.title} description={post.data.title}>
+  <PostHeader post={post} />
+  <div class="post-content">
+    <div class="markdown">
+      <Content />
+    </div>
+  </div>
+  <Giscus />
+</Layout>
+
+<style lang="scss">
+  .post-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+</style>

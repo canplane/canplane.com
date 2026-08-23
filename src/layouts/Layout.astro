@@ -1,0 +1,52 @@
+---
+import PageHeader from "../components/PageHeader.astro";
+import PageFooter from "../components/PageFooter.astro";
+import { SITE } from "../utils/site";
+import "../styles/global.scss";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+const pageTitle = title ? `${title} · ${SITE.title}` : SITE.title;
+const metaDescription = description || SITE.description;
+const ogImage = new URL("/brand/og-image.png", Astro.site).toString();
+---
+
+<!doctype html>
+<html lang={SITE.language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/brand/favicon.png" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:author" content={SITE.author} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="website" />
+    <script
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=UA-201251923-1`}></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-201251923-1");
+    </script>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <PageHeader />
+      <main class="page-content">
+        <slot />
+      </main>
+      <PageFooter author={SITE.author} githubUrl={SITE.social.github} />
+    </div>
+  </body>
+</html>

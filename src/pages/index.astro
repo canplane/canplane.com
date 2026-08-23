@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PostTabs from "../components/PostTabs.astro";
+import { getAllPosts, getUniqueCategories } from "../utils/posts";
+
+const posts = await getAllPosts();
+const categories = ["All", ...getUniqueCategories(posts)];
+const featuredIndex = categories.findIndex((c) => c === "featured");
+const tabIndex = featuredIndex === -1 ? 0 : featuredIndex;
+const tabTitle = categories[tabIndex];
+const tabPosts = tabTitle === "All" ? posts : posts.filter((p) => p.data.categories.includes(tabTitle));
+---
+
+<Layout title="Home">
+  <PostTabs tabTitle={tabTitle} posts={tabPosts} />
+</Layout>

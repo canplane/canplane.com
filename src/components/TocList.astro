@@ -1,0 +1,19 @@
+---
+import type { TocNode } from "../utils/posts";
+
+interface Props {
+  nodes: TocNode[];
+}
+const { nodes } = Astro.props;
+---
+
+<ul>
+  {nodes.map((node) => (
+    <li>
+      <a href={`#${node.slug}`}>
+        <p>{node.text}</p>
+      </a>
+      {node.children.length > 0 && <TocList nodes={node.children} />}
+    </li>
+  ))}
+</ul>

@@ -1,0 +1,36 @@
+---
+interface Props {
+  author: string;
+  githubUrl: string;
+}
+const { author, githubUrl } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="page-footer-wrapper">
+  <a href={githubUrl}>
+    <p class="page-footer">© {year} {author}</p>
+  </a>
+</footer>
+
+<style lang="scss">
+  .page-footer-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 5rem;
+    padding: 1.5rem;
+
+    display: flex;
+    align-items: flex-end;
+
+    .page-footer {
+      font-size: 0.875rem;
+      line-height: 1.625;
+
+      color: var(--secondary-text-color);
+    }
+  }
+</style>

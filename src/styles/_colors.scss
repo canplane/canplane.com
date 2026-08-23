@@ -9,28 +9,15 @@ html {
 
   --brand-color: #b71c1c;
 
-  --border-color: rgba(0, 0, 0, .075);
-  --float-background-color: rgba(255, 255, 255, .75);
+  --border-color: rgba(0, 0, 0, 0.075);
+  --float-background-color: rgba(255, 255, 255, 0.75);
 
-  --button-background-color: #f3f3f4;
-  --button-text-color: #363f47;
-
-  --tab-text-color: #6e6d7a;
-  --tab-hover-text-color: #0d0c22;
-  --tab-selected-background-color: rgba(13, 12, 34, 0.05);
-
-  --bio-link-icon-color: rgba(0, 0, 0, 0.54);
-  --about-link-icon-color: #a8a8a8;
-
-  --chip-background-color: #f3f3f4;
   --link-text-color: rgb(55 53 47 / 70%);
-  --post-card-border-color: rgba(0, 0, 0, 0.12);
 
   --markdown-table-even-cell-background-color: #f6f8fa;
   --markdown-table-border-color: #dfe2e5;
   --markdown-blockquote-border-color: #dfe2e5;
   --markdown-border-color: #e1e4e8;
-
 
   // dark mode colors
 
@@ -41,23 +28,10 @@ html {
     --tertiary-text-color: #777;
     --content-text-color: #fff;
 
-    --border-color: rgba(255, 255, 255, .075);
-    --float-background-color: rgba(30, 32, 34, .75);
-    
-
-    --button-background-color: #444c56;
-    --button-text-color: #363f47;
-
-    --tab-text-color: #768390;
-    --tab-hover-text-color: #acbac7;
-    --tab-selected-background-color: #373e47;
-
-    --chip-background-color: #323a42;
-    --bio-link-icon-color: #e6e6e6;
-    --about-link-icon-color: #a8a8a8;
+    --border-color: rgba(255, 255, 255, 0.075);
+    --float-background-color: rgba(30, 32, 34, 0.75);
 
     --link-text-color: #90b0ec;
-    --post-card-border-color: #363f47;
 
     --markdown-table-even-cell-background-color: #2d333b;
     --markdown-table-border-color: #444c56;

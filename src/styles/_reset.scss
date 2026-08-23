@@ -132,10 +132,6 @@ a {
   outline: none;
 }
 
-
-
-
-//
 p,
 h1,
 h2,
@@ -151,30 +147,19 @@ button,
 ::before {
   margin: 0;
   padding: 0;
-
-  //font-size: 1rem;
   font-weight: 400;
-  //line-height: 1;
-  
-  //white-space: pre-wrap;
-  //word-wrap: break-word;
 }
 button, input, select {
   all: unset;
 }
 
-
 body,
 body * {
   box-sizing: border-box !important;
   font-family: var(--font-family);
-  //letter-spacing: -.333333px;
-  //color: var(--primary-text-color);
 }
 
-
-
-/** custom */
+// custom
 a,
 button {
   cursor: pointer;
