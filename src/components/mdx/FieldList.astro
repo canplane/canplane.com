@@ -1,0 +1,10 @@
+---
+interface Props {
+  span?: "12" | "34";
+}
+const { span = "12" } = Astro.props;
+---
+
+<ul class={`grid-${span} ul-no-disc`} style="margin-bottom: 4em;">
+  <slot />
+</ul>
