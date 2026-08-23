@@ -4,39 +4,23 @@ import EmailIcon from "./icons/EmailIcon.astro";
 
 interface Props {
   links?: Record<string, string | undefined>;
+  large?: boolean;
 }
 
-const { links = {} } = Astro.props;
+const { links = {}, large = false } = Astro.props;
 const entries = Object.entries(links).filter(([, value]) => Boolean(value));
+const iconClass = `fill-secondary-text ${large ? "h-[30px] w-[30px]" : "h-5 w-5"}`;
 ---
 
 {entries.map(([key, value]) => (
   <a
-    class="icon-button"
+    class="inline-flex items-center justify-center p-2"
     title={key}
     href={key === "email" ? `mailto:${value}` : value}
     target={key === "email" ? undefined : "_blank"}
     rel={key === "email" ? undefined : "noopener noreferrer"}
   >
-    {key === "github" && <GitHubIcon class="icon" />}
-    {key === "email" && <EmailIcon class="icon" />}
+    {key === "github" && <GitHubIcon class={iconClass} />}
+    {key === "email" && <EmailIcon class={iconClass} />}
   </a>
 ))}
-
-<style lang="scss">
-  .icon-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
-  }
-  :global(.icon) {
-    width: 20px;
-    height: 20px;
-    fill: var(--secondary-text-color);
-  }
-  :global(.social-links .icon) {
-    width: 30px;
-    height: 30px;
-  }
-</style>

@@ -8,31 +8,9 @@ interface Props {
 const { post } = Astro.props;
 ---
 
-<header class="post-header grid">
-  <h1 class="title grid-12">{post.data.title}</h1>
-  <div class="info grid-34">{formatDate(post.data.date)}</div>
+<header class="grid w-full items-center pb-24 break-keep">
+  <h1 class="grid-12 mb-2 text-[2rem] leading-[1.3] text-primary-text">{post.data.title}</h1>
+  <div class="grid-34 mb-2 text-2xl leading-[1.3] text-primary-text">
+    {formatDate(post.data.date)}
+  </div>
 </header>
-
-<style lang="scss">
-  .post-header {
-    align-items: center;
-    width: 100%;
-
-    padding-bottom: 6rem;
-    word-break: keep-all;
-
-    .title {
-      font-size: 2rem;
-      line-height: 1.3;
-      color: var(--primary-text-color);
-      margin-bottom: 0.5rem;
-    }
-
-    .info {
-      font-size: 1.5rem;
-      line-height: 1.3;
-      color: var(--primary-text-color);
-      margin-bottom: 0.5rem;
-    }
-  }
-</style>

@@ -2,12 +2,14 @@
 import Layout from "../layouts/Layout.astro";
 
 const PIC_TEXT = `(╯°□°）╯︵ ┻━┻`;
-const DESCRIPTION = `Page not found!`;
+const DESCRIPTION = `404 Not Found`;
 ---
 
 <Layout title="404">
-  <div class="not-found">
-    <p class="pic-text">{PIC_TEXT}</p>
-    <p class="description">{DESCRIPTION}</p>
+  <div
+    class="absolute inset-0 flex flex-col items-center justify-center whitespace-nowrap text-tertiary-text"
+  >
+    <p class="text-[2.5rem] lg:text-[4rem]">{PIC_TEXT}</p>
+    <p class="mt-7 text-[1.75rem] lg:mt-8 lg:text-[2rem]">{DESCRIPTION}</p>
   </div>
 </Layout>

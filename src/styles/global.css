@@ -1,0 +1,121 @@
+@import "tailwindcss";
+@import "./pretendard.css";
+@import "./markdown-style.css";
+@import "./grid.css";
+
+@theme {
+  --font-sans: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", "Helvetica Neue", Helvetica, Roboto, "Noto Sans KR", "Malgun Gothic",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono: Menlo, Consolas, Monaco, "Andale Mono", "Ubuntu Mono", "Pretendard Variable",
+    "Pretendard", monospace;
+
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1080px;
+  --breakpoint-xl: 1280px;
+
+  --color-background: var(--background-color);
+  --color-primary-text: var(--primary-text-color);
+  --color-secondary-text: var(--secondary-text-color);
+  --color-tertiary-text: var(--tertiary-text-color);
+  --color-content-text: var(--content-text-color);
+  --color-brand: var(--brand-color);
+  --color-border: var(--border-color);
+  --color-float-background: var(--float-background-color);
+  --color-link-text: var(--link-text-color);
+}
+
+:root {
+  --background-color: var(--color-white);
+  --primary-text-color: var(--color-black);
+  --secondary-text-color: var(--color-gray-500);
+  --tertiary-text-color: var(--color-gray-400);
+  --content-text-color: var(--color-black);
+
+  --brand-color: var(--color-red-700);
+
+  --border-color: color-mix(in srgb, var(--color-black) 7.5%, transparent);
+  --float-background-color: color-mix(in srgb, var(--color-white) 75%, transparent);
+
+  --link-text-color: var(--color-stone-700);
+
+  --markdown-table-even-cell-background-color: var(--color-gray-50);
+  --markdown-table-border-color: var(--color-gray-200);
+  --markdown-blockquote-border-color: var(--color-gray-200);
+  --markdown-border-color: var(--color-gray-200);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: var(--color-zinc-900);
+    --primary-text-color: var(--color-white);
+    --secondary-text-color: var(--color-gray-400);
+    --tertiary-text-color: var(--color-gray-500);
+    --content-text-color: var(--color-white);
+
+    --border-color: color-mix(in srgb, var(--color-white) 7.5%, transparent);
+    --float-background-color: color-mix(in srgb, var(--color-zinc-900) 75%, transparent);
+
+    --link-text-color: var(--color-blue-300);
+
+    --markdown-table-even-cell-background-color: var(--color-gray-800);
+    --markdown-table-border-color: var(--color-gray-600);
+    --markdown-blockquote-border-color: var(--color-gray-600);
+    --markdown-border-color: var(--color-gray-700);
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    font-size: 14px;
+
+    @variant md {
+      font-size: 15px;
+    }
+    @variant lg {
+      font-size: 16px;
+    }
+  }
+
+  body {
+    background-color: var(--color-background) !important;
+    font-family: var(--font-sans);
+    word-break: keep-all;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    color: var(--color-link-text);
+  }
+
+  button,
+  input,
+  select {
+    all: unset;
+    box-sizing: border-box;
+  }
+
+  a,
+  button {
+    cursor: pointer;
+  }
+}
+
+@layer utilities {
+  .noscroll {
+    margin: 0 !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    touch-action: none !important;
+    -webkit-overflow-scrolling: none;
+  }
+}

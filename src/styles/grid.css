@@ -1,0 +1,120 @@
+/* Custom named-area grid system, written 2022-08-11 referencing the look
+   of https://cactus.tistory.com/232 */
+
+@layer components {
+  .grid {
+    display: grid;
+    grid-gap: 0 1.5rem;
+    grid-area: auto / grid-1 / auto / grid-4;
+    grid-template-areas: "grid-1" "grid-2" "grid-3" "grid-4";
+    grid-template-columns: 1fr;
+
+    @variant md {
+      grid-gap: 0 2.5rem;
+    }
+    @variant lg {
+      grid-gap: 0 3.5rem;
+      grid-template-areas: "grid-1 grid-3" "grid-2 grid-4";
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @variant xl {
+      grid-gap: 0 5rem;
+      grid-area: auto / grid-1 / auto / grid-4;
+      grid-template-areas: "grid-1 grid-2 grid-3 grid-4";
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .grid-1 {
+    grid-area: grid-1;
+    grid-template-areas: "grid-1";
+    grid-template-columns: 1fr;
+  }
+  .grid-2 {
+    grid-area: grid-2;
+    grid-template-areas: "grid-2";
+    grid-template-columns: 1fr;
+  }
+  .grid-3 {
+    grid-area: grid-3;
+    grid-template-areas: "grid-3";
+    grid-template-columns: 1fr;
+  }
+  .grid-4 {
+    grid-area: grid-4;
+    grid-template-areas: "grid-4";
+    grid-template-columns: 1fr;
+  }
+
+  .grid-12 {
+    grid-area: auto / grid-1 / auto / grid-2;
+    grid-template-areas: "grid-1" "grid-2";
+    grid-template-columns: 1fr;
+    @variant sm {
+      grid-template-areas: "grid-1 grid-2";
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .grid-23 {
+    grid-area: auto / grid-2 / auto / grid-3;
+    grid-template-areas: "grid-2" "grid-3";
+    grid-template-columns: 1fr;
+    @variant sm {
+      grid-template-areas: "grid-2 grid-3";
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .grid-34 {
+    grid-area: auto / grid-3 / auto / grid-4;
+    grid-template-areas: "grid-3" "grid-4";
+    grid-template-columns: 1fr;
+    @variant sm {
+      grid-template-areas: "grid-3 grid-4";
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .grid-13 {
+    grid-area: auto / grid-1 / auto / grid-3;
+    grid-template-areas: "grid-1" "grid-2" "grid-3";
+    grid-template-columns: 1fr;
+    @variant lg {
+      grid-template-areas: "grid-1 grid-1" "grid-2 grid-3";
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @variant xl {
+      grid-template-areas: "grid-1 grid-2 grid-3";
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .grid-24 {
+    grid-area: auto / grid-2 / auto / grid-4;
+    grid-template-areas: "grid-2" "grid-3" "grid-4";
+    grid-template-columns: 1fr;
+    @variant lg {
+      grid-template-areas: "grid-2 grid-2" "grid-3 grid-4";
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @variant xl {
+      grid-template-areas: "grid-2 grid-3 grid-4";
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .grid-14 {
+    grid-area: auto / grid-1 / auto / grid-4;
+    grid-template-areas: "grid-1" "grid-2" "grid-3" "grid-4";
+    grid-template-columns: 1fr;
+    @variant lg {
+      grid-template-areas: "grid-1 grid-3" "grid-2 grid-4";
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @variant xl {
+      grid-template-areas: "grid-1 grid-2 grid-3 grid-4";
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .section {
+    margin-bottom: 4em;
+  }
+}

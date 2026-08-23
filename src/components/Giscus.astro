@@ -2,8 +2,8 @@
 import { SITE } from "../utils/site";
 ---
 
-<div class="giscus-wrapper grid">
-  <div class="giscus grid-24" id="giscus-container"></div>
+<div class="grid w-full pt-32">
+  <div class="grid-24 w-full max-w-full" id="giscus-container"></div>
 </div>
 
 <script define:vars={{ giscus: SITE.giscus }}>
@@ -22,15 +22,3 @@ import { SITE } from "../utils/site";
   script.async = true;
   document.getElementById("giscus-container")?.appendChild(script);
 </script>
-
-<style lang="scss">
-  .giscus-wrapper {
-    width: 100%;
-    padding-top: 8rem;
-
-    .giscus {
-      width: 100%;
-      max-width: 100%;
-    }
-  }
-</style>

@@ -9,54 +9,16 @@ const { post } = Astro.props;
 const href = `/${post.slug}/`;
 ---
 
-<a class="post-card-wrapper" href={href}>
-  <div class="post-card">
-    <div class="title">{post.data.title}</div>
-    <div class="info">
-      <div class="date">{formatDate(post.data.date)}</div>
+<a
+  class="flex h-20 w-full cursor-pointer items-center border-b-[3px] border-border text-inherit"
+  href={href}
+>
+  <div class="flex w-full items-center justify-between">
+    <div class="min-w-0 overflow-hidden text-ellipsis whitespace-nowrap text-2xl text-primary-text">
+      {post.data.title}
+    </div>
+    <div class="ml-4 shrink-0">
+      <div class="text-base text-secondary-text">{formatDate(post.data.date)}</div>
     </div>
   </div>
 </a>
-
-<style lang="scss">
-  .post-card-wrapper {
-    border-bottom: 0.1875rem solid var(--border-color);
-
-    height: 5rem;
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-
-    cursor: pointer;
-    color: inherit;
-
-    .post-card {
-      width: 100%;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      .title {
-        color: var(--primary-text-color);
-        font-size: 1.5rem;
-
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-
-        min-width: 0;
-      }
-      .info {
-        margin-left: 1rem;
-        flex-shrink: 0;
-
-        .date {
-          font-size: 1rem;
-          color: var(--secondary-text-color);
-        }
-      }
-    }
-  }
-</style>

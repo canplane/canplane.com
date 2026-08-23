@@ -10,49 +10,105 @@ const categories = ["All", ...getUniqueCategories(posts)];
 const searchIndex = posts.map((p) => ({ title: p.data.title, slug: `/${p.slug}/` }));
 ---
 
-<header class="page-header-wrapper" id="page-header">
-  <div class="page-header">
-    <div class="buttons">
-      <button class="button button-logo" type="button" onclick="location.href='/'">
-        <div class="logo"><AuthorIcon /></div>
+<header
+  class="fixed inset-x-0 top-0 z-10 flex p-4 pointer-events-none transition-[top] duration-250 ease-in-out data-[hidden=true]:top-[-5rem]"
+  id="page-header"
+>
+  <div class="pointer-events-auto flex h-12 w-full items-center">
+    <div class="flex">
+      <button
+        class="rounded-none border-none bg-none p-1"
+        type="button"
+        onclick="location.href='/'"
+      >
+        <div
+          class="flex h-10 w-10 items-center justify-center bg-brand dark:bg-background [&_svg]:h-10 [&_svg]:w-10 [&_svg]:fill-background dark:[&_svg]:border dark:[&_svg]:border-primary-text dark:[&_svg]:fill-primary-text"
+        >
+          <AuthorIcon />
+        </div>
       </button>
     </div>
-    <div class="buttons right">
-      <button class="button search" type="button" id="open-search" aria-label="Search">
-        <div class="icon"><SearchIcon /></div>
+    <div class="ml-auto! flex gap-2">
+      <button
+        class="flex h-12 w-12 items-center justify-center rounded-none border-none bg-none [&_svg]:h-7 [&_svg]:w-7 [&_svg]:fill-primary-text"
+        type="button"
+        id="open-search"
+        aria-label="Search"
+      >
+        <SearchIcon />
       </button>
-      <button class="button category" type="button" id="open-nav" aria-label="Menu">
-        <div class="icon"><MenuIcon /></div>
+      <button
+        class="flex h-12 w-12 items-center justify-center rounded-none border-none bg-none [&_svg]:h-7 [&_svg]:w-7 [&_svg]:fill-primary-text"
+        type="button"
+        id="open-nav"
+        aria-label="Menu"
+      >
+        <MenuIcon />
       </button>
     </div>
   </div>
 </header>
 
-<div class="menu search" id="menu-search" data-open="false">
-  <button class="button close" type="button" id="close-search" aria-label="Close">
-    <div class="icon"><CloseIcon /></div>
-  </button>
-  <div class="search-wrapper">
-    <div class="search-box">
-      <div class="icon icon-search"><SearchIcon /></div>
-      <input class="search-input" id="search-input" type="text" autocomplete="off" />
+<div
+  class="group fixed inset-0 z-20 bg-transparent pointer-events-none transition-colors duration-500 pt-20 data-[open=true]:pointer-events-auto data-[open=true]:bg-float-background data-[open=true]:backdrop-blur-lg"
+  id="menu-search"
+  data-open="false"
+>
+  <button
+    class="absolute top-4 right-4 z-[1] rounded-none border-none bg-none opacity-0 transition-opacity duration-500 group-data-[open=true]:opacity-100"
+    type="button"
+    id="close-search"
+    aria-label="Close"
+  >
+    <div class="flex h-12 w-12 items-center justify-center [&_svg]:h-7 [&_svg]:w-7 [&_svg]:fill-primary-text">
+      <CloseIcon />
     </div>
-    <div class="auto-complete-list" id="auto-complete-list"></div>
+  </button>
+  <div class="absolute inset-x-6 top-20 bottom-0 opacity-0 transition-opacity duration-500 group-data-[open=true]:opacity-100 lg:inset-x-1/4">
+    <div class="relative flex h-16 items-center justify-center border-b-[3px] border-primary-text">
+      <div class="absolute left-0 h-full w-auto mr-3 flex items-center justify-center [&_svg]:h-7 [&_svg]:w-7 [&_svg]:fill-primary-text">
+        <SearchIcon />
+      </div>
+      <input
+        class="h-full w-[calc(100%-3rem-2rem)] bg-none text-center text-2xl text-primary-text outline-none"
+        id="search-input"
+        type="text"
+        autocomplete="off"
+      />
+    </div>
+    <div class="flex flex-col pt-8" id="auto-complete-list"></div>
   </div>
 </div>
 
-<div class="menu nav" id="menu-nav" data-open="false">
-  <button class="button close" type="button" id="close-nav" aria-label="Close">
-    <div class="icon"><CloseIcon /></div>
+<div
+  class="group fixed inset-0 z-20 bg-transparent pointer-events-none transition-colors duration-500 pt-20 data-[open=true]:pointer-events-auto data-[open=true]:bg-float-background data-[open=true]:backdrop-blur-lg"
+  id="menu-nav"
+  data-open="false"
+>
+  <button
+    class="absolute top-4 right-4 z-[1] rounded-none border-none bg-none opacity-0 transition-opacity duration-500 group-data-[open=true]:opacity-100"
+    type="button"
+    id="close-nav"
+    aria-label="Close"
+  >
+    <div class="flex h-12 w-12 items-center justify-center [&_svg]:h-7 [&_svg]:w-7 [&_svg]:fill-primary-text">
+      <CloseIcon />
+    </div>
   </button>
-  <div class="nav-wrapper">
-    <div class="nav-list">
+  <div class="absolute inset-x-6 top-20 bottom-0 opacity-0 transition-opacity duration-500 group-data-[open=true]:opacity-100 lg:inset-x-1/4">
+    <div class="flex flex-col">
       {categories.map((category, idx) => (
-        <a class="nav-item" href={idx === 0 ? "/posts" : `/posts/${category}`}>
+        <a
+          class="flex h-16 items-center text-primary-text [&_p]:w-full [&_p]:text-center [&_p]:text-2xl"
+          href={idx === 0 ? "/posts" : `/posts/${category}`}
+        >
           <p>{category}</p>
         </a>
       ))}
-      <a class="nav-item" href="/about">
+      <a
+        class="flex h-16 items-center text-primary-text [&_p]:w-full [&_p]:text-center [&_p]:text-2xl"
+        href="/about"
+      >
         <p>About</p>
       </a>
     </div>
@@ -135,235 +191,3 @@ const searchIndex = posts.map((p) => ({ title: p.data.title, slug: `/${p.slug}/`
     header.dataset.hidden = String(direction === 1);
   });
 </script>
-
-<style lang="scss">
-  @use "../styles/mixins" as *;
-  @use "../styles/variables" as *;
-
-  .page-header-wrapper {
-    z-index: 10;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-
-    display: flex;
-    padding: 1rem;
-
-    pointer-events: none;
-
-    .page-header {
-      pointer-events: auto;
-      width: 100%;
-
-      display: flex;
-      align-items: center;
-      height: 3rem;
-
-      .buttons {
-        display: flex;
-        .button + .button {
-          margin-left: 0.5rem;
-        }
-        .button.button-logo {
-          padding: 0.25rem;
-          background: none;
-          border: none;
-
-          .logo {
-            height: 2.5rem;
-            width: 2.5rem;
-            background-color: var(--brand-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            :global(svg) {
-              width: 2.5rem;
-              height: 2.5rem;
-              fill: var(--background-color);
-            }
-          }
-          @media (prefers-color-scheme: dark) {
-            .logo {
-              background-color: var(--background-color);
-              :global(svg) {
-                border: 1px solid var(--primary-text-color);
-                fill: var(--primary-text-color);
-              }
-            }
-          }
-        }
-        .button {
-          background: none;
-          border: none;
-        }
-      }
-
-      .right {
-        margin-left: auto !important;
-      }
-    }
-
-    transition: top 0.25s ease;
-    &[data-hidden="true"] {
-      top: -5rem;
-    }
-
-    .icon {
-      height: 3rem;
-      width: 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      :global(svg) {
-        height: 1.75rem;
-        width: 1.75rem;
-        fill: var(--primary-text-color);
-      }
-    }
-  }
-
-  .menu {
-    z-index: 20;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    pointer-events: none;
-    background-color: transparent;
-    transition: background-color 0.5s ease;
-
-    & > * {
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-
-    &[data-open="true"] {
-      pointer-events: auto;
-      -webkit-backdrop-filter: blur(1rem);
-      backdrop-filter: blur(1rem);
-      background-color: var(--float-background-color);
-      & > * {
-        opacity: 1;
-      }
-    }
-
-    & > .button.close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      z-index: 1;
-    }
-
-    .icon {
-      height: 3rem;
-      width: 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      :global(svg) {
-        height: 1.75rem;
-        width: 1.75rem;
-        fill: var(--primary-text-color);
-      }
-    }
-  }
-
-  .menu.search {
-    padding-top: 5rem;
-    .search-wrapper {
-      position: absolute;
-      top: 5rem;
-      bottom: 0;
-      left: 1.5rem;
-      right: 1.5rem;
-      @include lg {
-        left: 25%;
-        right: 25%;
-      }
-
-      .search-box {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        height: 4rem;
-        border-bottom: 0.1875rem solid var(--primary-text-color);
-
-        position: relative;
-        .icon.icon-search {
-          position: absolute;
-          left: 0;
-          height: 100%;
-          width: auto;
-          margin-right: 0.75rem;
-        }
-        .search-input {
-          font-size: 1.5rem;
-          height: 100%;
-          width: calc(100% - 3rem - 2rem);
-          text-align: center;
-          background: none;
-          border: none;
-          color: var(--primary-text-color);
-          outline: none;
-        }
-      }
-      .auto-complete-list {
-        padding-top: 2rem;
-
-        display: flex;
-        flex-direction: column;
-
-        .auto-complete-item {
-          height: 4rem;
-          display: flex;
-          align-items: center;
-          color: var(--primary-text-color);
-
-          p {
-            width: 100%;
-            font-size: 1.5rem;
-            text-align: center;
-          }
-        }
-      }
-    }
-  }
-
-  .menu.nav {
-    .nav-wrapper {
-      position: absolute;
-      top: 5rem;
-      bottom: 0;
-      left: 1.5rem;
-      right: 1.5rem;
-      @include lg {
-        left: 25%;
-        right: 25%;
-      }
-
-      .nav-list {
-        display: flex;
-        flex-direction: column;
-
-        .nav-item {
-          height: 4rem;
-          display: flex;
-          align-items: center;
-          color: var(--primary-text-color);
-
-          p {
-            width: 100%;
-            font-size: 1.5rem;
-            text-align: center;
-          }
-        }
-      }
-    }
-  }
-</style>

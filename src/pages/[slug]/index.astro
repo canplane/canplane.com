@@ -18,19 +18,10 @@ const { Content } = await render(post);
 
 <Layout title={post.data.title} description={post.data.title}>
   <PostHeader post={post} />
-  <div class="post-content">
+  <div class="flex w-full flex-col justify-center">
     <div class="markdown">
       <Content />
     </div>
   </div>
   <Giscus />
 </Layout>
-
-<style lang="scss">
-  .post-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-  }
-</style>

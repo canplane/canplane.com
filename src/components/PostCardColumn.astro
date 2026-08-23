@@ -8,23 +8,8 @@ interface Props {
 const { posts } = Astro.props;
 ---
 
-<div class="post-card-column-wrapper grid-24">
-  <div class="post-card-column">
+<div class="grid-24 flex w-full justify-center">
+  <div class="flex w-full flex-col items-center">
     {posts.map((post) => <PostCard post={post} />)}
   </div>
 </div>
-
-<style lang="scss">
-  .post-card-column-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-
-    .post-card-column {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-    }
-  }
-</style>

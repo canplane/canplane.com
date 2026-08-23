@@ -9,36 +9,11 @@ interface Props {
 const { tabTitle, posts } = Astro.props;
 ---
 
-<div class="post-tabs-wrapper grid">
-  <div class="post-tabs grid-1">
-    <div class="category-page-header-wrapper">
-      <p class="category-page-title">{tabTitle}</p>
+<div class="grid w-full">
+  <div class="grid-1 flex flex-col items-start">
+    <div class="flex h-20 flex-col justify-center">
+      <p class="w-fit text-[2.25rem]">{tabTitle}</p>
     </div>
   </div>
   <PostCardColumn posts={posts} />
 </div>
-
-<style lang="scss">
-  .post-tabs-wrapper {
-    width: 100%;
-
-    .post-tabs {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-
-      .category-page-header-wrapper {
-        height: 5rem;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        .category-page-title {
-          width: fit-content;
-          font-size: 2.25rem;
-        }
-      }
-    }
-  }
-</style>
