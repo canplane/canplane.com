@@ -4,7 +4,7 @@
 @import "./grid.css";
 
 @theme {
-  --font-sans: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+  --font-sans: "Gothic A1", "Pretendard Variable", -apple-system, BlinkMacSystemFont,
     "Apple SD Gothic Neo", "Helvetica Neue", Helvetica, Roboto, "Noto Sans KR", "Malgun Gothic",
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   --font-mono: Menlo, Consolas, Monaco, "Andale Mono", "Ubuntu Mono", "Pretendard Variable",
@@ -27,16 +27,19 @@
 }
 
 :root {
-  --background-color: var(--color-white);
+  --font-weight-base: 300;
+  --font-weight-bold: 600;
+
+  --background-color: var(--color-stone-50);
   --primary-text-color: var(--color-black);
-  --secondary-text-color: var(--color-gray-500);
-  --tertiary-text-color: var(--color-gray-400);
+  --secondary-text-color: var(--color-stone-500);
+  --tertiary-text-color: var(--color-stone-400);
   --content-text-color: var(--color-black);
 
   --brand-color: var(--color-red-700);
 
   --border-color: color-mix(in srgb, var(--color-black) 7.5%, transparent);
-  --float-background-color: color-mix(in srgb, var(--color-white) 90%, transparent);
+  --float-background-color: color-mix(in srgb, var(--background-color) 90%, transparent);
 
   --link-text-color: var(--color-stone-700);
 
@@ -49,14 +52,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-color: var(--color-zinc-900);
+    --background-color: var(--color-stone-900);
     --primary-text-color: var(--color-white);
-    --secondary-text-color: var(--color-gray-400);
-    --tertiary-text-color: var(--color-gray-500);
+    --secondary-text-color: var(--color-stone-400);
+    --tertiary-text-color: var(--color-stone-500);
     --content-text-color: var(--color-white);
 
     --border-color: color-mix(in srgb, var(--color-white) 7.5%, transparent);
-    --float-background-color: color-mix(in srgb, var(--color-zinc-900) 90%, transparent);
+    --float-background-color: color-mix(in srgb, var(--background-color) 90%, transparent);
 
     --link-text-color: var(--color-blue-300);
 
@@ -90,6 +93,7 @@
   body {
     background-color: var(--color-background) !important;
     font-family: var(--font-sans);
+    font-weight: var(--font-weight-base);
     word-break: keep-all;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

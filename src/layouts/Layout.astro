@@ -2,14 +2,17 @@
 import PageHeader from "@/components/PageHeader.astro";
 import PageFooter from "@/components/PageFooter.astro";
 import { SITE } from "@/utils/site";
+import "@fontsource/gothic-a1/300.css";
+import "@fontsource/gothic-a1/600.css";
 import "../styles/global.css";
 
 interface Props {
   title?: string;
   description?: string;
   lang?: string;
+  showHomeLink?: boolean;
 }
-const { title, description, lang } = Astro.props;
+const { title, description, lang, showHomeLink } = Astro.props;
 const pageTitle = title ?? SITE.title;
 const metaDescription = description || SITE.description;
 const ogImage = new URL("/brand/og-image.jpg", Astro.site).toString();
@@ -44,7 +47,7 @@ const ogImage = new URL("/brand/og-image.jpg", Astro.site).toString();
   </head>
   <body>
     <div class="relative flex min-h-screen w-full flex-col items-center px-6 pt-32 pb-32 text-primary-text lg:px-12">
-      <PageHeader />
+      <PageHeader showHomeLink={showHomeLink} />
       <main class="flex h-full w-full flex-col items-center">
         <slot />
       </main>

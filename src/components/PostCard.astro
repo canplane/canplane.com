@@ -10,15 +10,15 @@ const href = `/${post.slug}/`;
 ---
 
 <a
-  class="group flex h-20 w-full min-w-0 cursor-pointer items-center border-b-2 border-border text-inherit"
+  class="group flex h-20 w-full min-w-0 cursor-pointer items-center border-b border-primary-text text-inherit"
   href={href}
 >
   <div class="flex w-full min-w-0 items-center justify-between">
-    <div class="min-w-0 overflow-hidden text-ellipsis whitespace-nowrap text-2xl text-primary-text group-hover:underline underline-offset-4">
+    <div class="min-w-0 overflow-hidden text-ellipsis whitespace-nowrap text-2xl text-primary-text group-hover:underline decoration-1 underline-offset-4">
       {post.data.title}
     </div>
     <div class="ml-4 shrink-0">
-      <div class="text-base text-secondary-text">{formatDate(post.data.date)}</div>
+      <div class="text-base text-primary-text">{formatDate(post.data.date)}</div>
     </div>
   </div>
 </a>

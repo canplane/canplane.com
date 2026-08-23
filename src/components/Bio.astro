@@ -25,8 +25,8 @@ const [descriptionStart, descriptionEnd] = bio.description.split(/\s+and\s+/);
         {descriptionStart}<br />
         {descriptionEnd && <>and {descriptionEnd}<br /></>}
       </p>
-      <div class="-ml-1.25 mt-6 flex">
-        <SocialLinks links={social} large />
+      <div class="-ml-1.25 mt-6 flex gap-2">
+        <SocialLinks links={social} />
       </div>
     </div>
   </div>

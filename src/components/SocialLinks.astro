@@ -4,19 +4,17 @@ import { Mail } from "@lucide/astro";
 
 interface Props {
   links?: Record<string, string | undefined>;
-  large?: boolean;
 }
 
-const { links = {}, large = false } = Astro.props;
+const { links = {} } = Astro.props;
 const entries = Object.entries(links).filter(([, value]) => Boolean(value));
-const size = large ? "h-[30px] w-[30px]" : "h-5 w-5";
-const githubClass = `fill-secondary-text ${size}`;
-const emailClass = `stroke-secondary-text ${size}`;
+const githubClass = "fill-primary-text h-7 w-7";
+const emailClass = "stroke-primary-text h-7 w-7";
 ---
 
 {entries.map(([key, value]) => (
   <a
-    class="inline-flex items-center justify-center p-2 hover:opacity-70"
+    class="inline-flex items-center justify-center p-2 hover:opacity-50"
     title={key}
     href={key === "email" ? `mailto:${value}` : value}
     target={key === "email" ? undefined : "_blank"}

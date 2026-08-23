@@ -11,7 +11,7 @@ const { nodes } = Astro.props;
 <ul>
   {nodes.map((node) => (
     <li>
-      <a class="hover:underline underline-offset-4" href={`#${node.slug}`}>
+      <a class="hover:underline decoration-1 underline-offset-4" href={`#${node.slug}`}>
         <p>{node.text}</p>
       </a>
       {node.children.length > 0 && <TocList nodes={node.children} />}
