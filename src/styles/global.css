@@ -4,11 +4,11 @@
 @import "./grid.css";
 
 @theme {
-  --font-sans: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont,
+  --font-sans: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
     "Apple SD Gothic Neo", "Helvetica Neue", Helvetica, Roboto, "Noto Sans KR", "Malgun Gothic",
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   --font-mono: Menlo, Consolas, Monaco, "Andale Mono", "Ubuntu Mono", "Pretendard Variable",
-    "Pretendard", monospace;
+    monospace;
 
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -36,7 +36,7 @@
   --brand-color: var(--color-red-700);
 
   --border-color: color-mix(in srgb, var(--color-black) 7.5%, transparent);
-  --float-background-color: color-mix(in srgb, var(--color-white) 75%, transparent);
+  --float-background-color: color-mix(in srgb, var(--color-white) 90%, transparent);
 
   --link-text-color: var(--color-stone-700);
 
@@ -44,6 +44,7 @@
   --markdown-table-border-color: var(--color-gray-200);
   --markdown-blockquote-border-color: var(--color-gray-200);
   --markdown-border-color: var(--color-gray-200);
+  --markdown-code-background-color: var(--color-gray-100);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,7 +56,7 @@
     --content-text-color: var(--color-white);
 
     --border-color: color-mix(in srgb, var(--color-white) 7.5%, transparent);
-    --float-background-color: color-mix(in srgb, var(--color-zinc-900) 75%, transparent);
+    --float-background-color: color-mix(in srgb, var(--color-zinc-900) 90%, transparent);
 
     --link-text-color: var(--color-blue-300);
 
@@ -63,6 +64,7 @@
     --markdown-table-border-color: var(--color-gray-600);
     --markdown-blockquote-border-color: var(--color-gray-600);
     --markdown-border-color: var(--color-gray-700);
+    --markdown-code-background-color: var(--color-gray-800);
   }
 }
 

@@ -1,7 +1,7 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import PostTabs from "../../components/PostTabs.astro";
-import { getAllPosts, getUniqueCategories } from "../../utils/posts";
+import Layout from "@/layouts/Layout.astro";
+import PostListSection from "@/components/PostListSection.astro";
+import { getAllPosts, getUniqueCategories } from "@/utils/posts";
 
 export async function getStaticPaths() {
   const posts = await getAllPosts();
@@ -15,6 +15,6 @@ export async function getStaticPaths() {
 const { posts, category } = Astro.props;
 ---
 
-<Layout title="Posts">
-  <PostTabs tabTitle={category} posts={posts} />
+<Layout title={category}>
+  <PostListSection title={category} posts={posts} />
 </Layout>

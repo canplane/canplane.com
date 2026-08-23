@@ -1,6 +1,6 @@
 ---
 import GitHubIcon from "./icons/GitHubIcon.astro";
-import EmailIcon from "./icons/EmailIcon.astro";
+import { Mail } from "@lucide/astro";
 
 interface Props {
   links?: Record<string, string | undefined>;
@@ -9,18 +9,20 @@ interface Props {
 
 const { links = {}, large = false } = Astro.props;
 const entries = Object.entries(links).filter(([, value]) => Boolean(value));
-const iconClass = `fill-secondary-text ${large ? "h-[30px] w-[30px]" : "h-5 w-5"}`;
+const size = large ? "h-[30px] w-[30px]" : "h-5 w-5";
+const githubClass = `fill-secondary-text ${size}`;
+const emailClass = `stroke-secondary-text ${size}`;
 ---
 
 {entries.map(([key, value]) => (
   <a
-    class="inline-flex items-center justify-center p-2"
+    class="inline-flex items-center justify-center p-2 hover:opacity-70"
     title={key}
     href={key === "email" ? `mailto:${value}` : value}
     target={key === "email" ? undefined : "_blank"}
     rel={key === "email" ? undefined : "noopener noreferrer"}
   >
-    {key === "github" && <GitHubIcon class={iconClass} />}
-    {key === "email" && <EmailIcon class={iconClass} />}
+    {key === "github" && <GitHubIcon class={githubClass} />}
+    {key === "email" && <Mail class={emailClass} stroke-width={1} />}
   </a>
 ))}

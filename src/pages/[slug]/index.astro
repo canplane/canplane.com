@@ -1,7 +1,7 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import PostHeader from "../../components/PostHeader.astro";
-import Giscus from "../../components/Giscus.astro";
+import Layout from "@/layouts/Layout.astro";
+import PostHeader from "@/components/PostHeader.astro";
+import Giscus from "@/components/Giscus.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -16,7 +16,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layout title={post.data.title} description={post.data.title}>
+<Layout title={post.data.title} description={post.data.title} lang={post.data.lang}>
   <PostHeader post={post} />
   <div class="flex w-full flex-col justify-center">
     <div class="markdown">

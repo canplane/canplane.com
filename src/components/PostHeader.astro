@@ -1,6 +1,6 @@
 ---
-import { formatDate } from "../utils/posts";
-import type { Post } from "../utils/posts";
+import { formatDate } from "@/utils/posts";
+import type { Post } from "@/utils/posts";
 
 interface Props {
   post: Post;
@@ -8,9 +8,9 @@ interface Props {
 const { post } = Astro.props;
 ---
 
-<header class="grid w-full items-center pb-24 break-keep">
-  <h1 class="grid-12 mb-2 text-[2rem] leading-[1.3] text-primary-text">{post.data.title}</h1>
-  <div class="grid-34 mb-2 text-2xl leading-[1.3] text-primary-text">
+<header class="c-grid w-full items-center pb-24 break-keep">
+  <h1 class="c-grid-12 mb-2 text-[2rem] leading-[1.3] text-primary-text">{post.data.title}</h1>
+  <div class="c-grid-34 mb-2 text-2xl leading-[1.3] text-primary-text">
     {formatDate(post.data.date)}
   </div>
 </header>

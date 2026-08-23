@@ -1,6 +1,6 @@
 ---
 import PostCard from "./PostCard.astro";
-import type { Post } from "../utils/posts";
+import type { Post } from "@/utils/posts";
 
 interface Props {
   posts: Post[];
@@ -8,8 +8,8 @@ interface Props {
 const { posts } = Astro.props;
 ---
 
-<div class="grid-24 flex w-full justify-center">
-  <div class="flex w-full flex-col items-center">
+<div class="c-grid-24 flex w-full min-w-0 justify-center">
+  <div class="flex w-full min-w-0 flex-col items-center">
     {posts.map((post) => <PostCard post={post} />)}
   </div>
 </div>

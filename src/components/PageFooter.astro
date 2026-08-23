@@ -8,7 +8,9 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="absolute inset-x-0 bottom-0 flex h-20 items-end p-6">
-  <a href={githubUrl}>
-    <p class="text-sm leading-[1.625] text-secondary-text">© {year} {author}</p>
+  <a class="group text-secondary-text" href={githubUrl}>
+    <p class="text-sm leading-relaxed">
+      © {year} <span class="group-hover:underline underline-offset-4">{author}</span>
+    </p>
   </a>
 </footer>

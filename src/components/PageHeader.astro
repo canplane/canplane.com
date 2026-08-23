@@ -1,9 +1,7 @@
 ---
-import AuthorIcon from "./icons/AuthorIcon.astro";
-import SearchIcon from "./icons/SearchIcon.astro";
-import MenuIcon from "./icons/MenuIcon.astro";
-import CloseIcon from "./icons/CloseIcon.astro";
-import { getAllPosts, getUniqueCategories } from "../utils/posts";
+import { Search, Menu, X } from "@lucide/astro";
+import { getAllPosts, getUniqueCategories } from "@/utils/posts";
+import { SITE } from "@/utils/site";
 
 const posts = await getAllPosts();
 const categories = ["All", ...getUniqueCategories(posts)];
@@ -11,63 +9,59 @@ const searchIndex = posts.map((p) => ({ title: p.data.title, slug: `/${p.slug}/`
 ---
 
 <header
-  class="fixed inset-x-0 top-0 z-10 flex p-4 pointer-events-none transition-[top] duration-250 ease-in-out data-[hidden=true]:top-[-5rem]"
+  class="fixed inset-x-0 top-0 z-10 flex p-4 pointer-events-none transition-[top] duration-300 ease-in-out data-[hidden=true]:-top-20"
   id="page-header"
 >
   <div class="pointer-events-auto flex h-12 w-full items-center">
     <div class="flex">
       <button
-        class="rounded-none border-none bg-none p-1"
+        class="rounded-none border-none bg-none hover:opacity-70"
         type="button"
         onclick="location.href='/'"
       >
-        <div
-          class="flex h-10 w-10 items-center justify-center bg-brand dark:bg-background [&_svg]:h-10 [&_svg]:w-10 [&_svg]:fill-background dark:[&_svg]:border dark:[&_svg]:border-primary-text dark:[&_svg]:fill-primary-text"
-        >
-          <AuthorIcon />
-        </div>
+        <img class="block h-12 w-12" src="/brand/logo.svg" alt={SITE.title} />
       </button>
     </div>
     <div class="ml-auto! flex gap-2">
       <button
-        class="flex h-12 w-12 items-center justify-center rounded-none border-none bg-none [&_svg]:h-7 [&_svg]:w-7 [&_svg]:fill-primary-text"
+        class="flex h-12 w-12 items-center justify-center rounded-none border-none bg-none hover:opacity-70 [&_svg]:h-7 [&_svg]:w-7 [&_svg]:stroke-primary-text"
         type="button"
         id="open-search"
         aria-label="Search"
       >
-        <SearchIcon />
+        <Search stroke-width={1} />
       </button>
       <button
-        class="flex h-12 w-12 items-center justify-center rounded-none border-none bg-none [&_svg]:h-7 [&_svg]:w-7 [&_svg]:fill-primary-text"
+        class="flex h-12 w-12 items-center justify-center rounded-none border-none bg-none hover:opacity-70 [&_svg]:h-7 [&_svg]:w-7 [&_svg]:stroke-primary-text"
         type="button"
         id="open-nav"
         aria-label="Menu"
       >
-        <MenuIcon />
+        <Menu stroke-width={1} />
       </button>
     </div>
   </div>
 </header>
 
 <div
-  class="group fixed inset-0 z-20 bg-transparent pointer-events-none transition-colors duration-500 pt-20 data-[open=true]:pointer-events-auto data-[open=true]:bg-float-background data-[open=true]:backdrop-blur-lg"
+  class="group fixed inset-0 z-20 pointer-events-none opacity-0 transition-opacity duration-300 pt-20 data-[open=true]:pointer-events-auto data-[open=true]:opacity-100 data-[open=true]:bg-float-background data-[open=true]:backdrop-blur-lg"
   id="menu-search"
   data-open="false"
 >
   <button
-    class="absolute top-4 right-4 z-[1] rounded-none border-none bg-none opacity-0 transition-opacity duration-500 group-data-[open=true]:opacity-100"
+    class="absolute top-4 right-4 z-1 rounded-none border-none bg-none hover:opacity-70"
     type="button"
     id="close-search"
     aria-label="Close"
   >
-    <div class="flex h-12 w-12 items-center justify-center [&_svg]:h-7 [&_svg]:w-7 [&_svg]:fill-primary-text">
-      <CloseIcon />
+    <div class="flex h-12 w-12 items-center justify-center [&_svg]:h-7 [&_svg]:w-7 [&_svg]:stroke-primary-text">
+      <X stroke-width={1} />
     </div>
   </button>
-  <div class="absolute inset-x-6 top-20 bottom-0 opacity-0 transition-opacity duration-500 group-data-[open=true]:opacity-100 lg:inset-x-1/4">
-    <div class="relative flex h-16 items-center justify-center border-b-[3px] border-primary-text">
-      <div class="absolute left-0 h-full w-auto mr-3 flex items-center justify-center [&_svg]:h-7 [&_svg]:w-7 [&_svg]:fill-primary-text">
-        <SearchIcon />
+  <div class="absolute inset-x-6 top-20 bottom-0 lg:inset-x-1/4">
+    <div class="relative flex h-16 items-center justify-center border-b-2 border-primary-text">
+      <div class="absolute left-0 h-full w-auto mr-3 flex items-center justify-center [&_svg]:h-7 [&_svg]:w-7 [&_svg]:stroke-primary-text">
+        <Search stroke-width={1} />
       </div>
       <input
         class="h-full w-[calc(100%-3rem-2rem)] bg-none text-center text-2xl text-primary-text outline-none"
@@ -81,32 +75,32 @@ const searchIndex = posts.map((p) => ({ title: p.data.title, slug: `/${p.slug}/`
 </div>
 
 <div
-  class="group fixed inset-0 z-20 bg-transparent pointer-events-none transition-colors duration-500 pt-20 data-[open=true]:pointer-events-auto data-[open=true]:bg-float-background data-[open=true]:backdrop-blur-lg"
+  class="group fixed inset-0 z-20 pointer-events-none opacity-0 transition-opacity duration-300 pt-20 data-[open=true]:pointer-events-auto data-[open=true]:opacity-100 data-[open=true]:bg-float-background data-[open=true]:backdrop-blur-lg"
   id="menu-nav"
   data-open="false"
 >
   <button
-    class="absolute top-4 right-4 z-[1] rounded-none border-none bg-none opacity-0 transition-opacity duration-500 group-data-[open=true]:opacity-100"
+    class="absolute top-4 right-4 z-1 rounded-none border-none bg-none hover:opacity-70"
     type="button"
     id="close-nav"
     aria-label="Close"
   >
-    <div class="flex h-12 w-12 items-center justify-center [&_svg]:h-7 [&_svg]:w-7 [&_svg]:fill-primary-text">
-      <CloseIcon />
+    <div class="flex h-12 w-12 items-center justify-center [&_svg]:h-7 [&_svg]:w-7 [&_svg]:stroke-primary-text">
+      <X stroke-width={1} />
     </div>
   </button>
-  <div class="absolute inset-x-6 top-20 bottom-0 opacity-0 transition-opacity duration-500 group-data-[open=true]:opacity-100 lg:inset-x-1/4">
+  <div class="absolute inset-x-6 top-20 bottom-0 lg:inset-x-1/4">
     <div class="flex flex-col">
       {categories.map((category, idx) => (
         <a
-          class="flex h-16 items-center text-primary-text [&_p]:w-full [&_p]:text-center [&_p]:text-2xl"
+          class="flex h-16 items-center text-primary-text hover:underline underline-offset-4 [&_p]:w-full [&_p]:text-center [&_p]:text-2xl"
           href={idx === 0 ? "/posts" : `/posts/${category}`}
         >
           <p>{category}</p>
         </a>
       ))}
       <a
-        class="flex h-16 items-center text-primary-text [&_p]:w-full [&_p]:text-center [&_p]:text-2xl"
+        class="flex h-16 items-center text-primary-text hover:underline underline-offset-4 [&_p]:w-full [&_p]:text-center [&_p]:text-2xl"
         href="/about"
       >
         <p>About</p>
@@ -162,7 +156,8 @@ const searchIndex = posts.map((p) => ({ title: p.data.title, slug: `/${p.slug}/`
     const matches = searchIndex.filter((p) => p.title.toLowerCase().includes(q)).slice(0, 10);
     matches.forEach((post) => {
       const a = document.createElement("a");
-      a.className = "auto-complete-item";
+      a.className =
+        "flex h-16 items-center justify-center text-primary-text hover:underline underline-offset-4 [&_p]:w-full [&_p]:text-center [&_p]:text-2xl";
       a.href = post.slug;
       const p = document.createElement("p");
       p.textContent = post.title;

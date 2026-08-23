@@ -13,7 +13,10 @@ export async function getAllPosts(): Promise<Post[]> {
 }
 
 export function formatDate(date: Date): string {
-  return `${date.getUTCFullYear()}. ${date.getUTCMonth() + 1}. ${date.getUTCDate()}.`;
+  const year = date.getUTCFullYear();
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(date.getUTCDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
 }
 
 export function getUniqueCategories(posts: Post[]): string[] {

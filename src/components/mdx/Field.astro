@@ -7,7 +7,7 @@ const { label, span = "12" } = Astro.props;
 const [labelCol, valueCol] = span.split("");
 ---
 
-<li class={`grid grid-${span}`}>
-  <h6 class={`grid-${labelCol}`}>{label}</h6>
-  <p class={`grid-${valueCol}`}><slot /></p>
+<li class={`c-grid c-grid-${span}`}>
+  <h6 class={`c-grid-${labelCol}`}>{label}</h6>
+  <p class={`c-grid-${valueCol}`}><slot /></p>
 </li>

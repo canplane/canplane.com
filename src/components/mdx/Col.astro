@@ -1,10 +1,10 @@
 ---
 interface Props {
-  span: "1" | "2" | "3" | "4" | "12" | "23" | "34" | "13" | "24" | "14";
+  span: "1" | "2" | "3" | "4" | "12" | "34" | "24" | "14";
 }
 const { span } = Astro.props;
 ---
 
-<div class={`grid-${span}`}>
+<div class={`c-grid-${span}`}>
   <slot />
 </div>

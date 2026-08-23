@@ -1,43 +1,45 @@
 ---
-import PageHeader from "../components/PageHeader.astro";
-import PageFooter from "../components/PageFooter.astro";
-import { SITE } from "../utils/site";
+import PageHeader from "@/components/PageHeader.astro";
+import PageFooter from "@/components/PageFooter.astro";
+import { SITE } from "@/utils/site";
 import "../styles/global.css";
 
 interface Props {
   title?: string;
   description?: string;
+  lang?: string;
 }
-const { title, description } = Astro.props;
-const pageTitle = title ? `${title} · ${SITE.title}` : SITE.title;
+const { title, description, lang } = Astro.props;
+const pageTitle = title ?? SITE.title;
 const metaDescription = description || SITE.description;
-const ogImage = new URL("/brand/og-image.png", Astro.site).toString();
+const ogImage = new URL("/brand/og-image.jpg", Astro.site).toString();
 ---
 
 <!doctype html>
-<html lang={SITE.language}>
+<html lang={lang ?? SITE.language}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/brand/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="/brand/logo.svg" />
     <title>{pageTitle}</title>
-    <meta name="description" content={metaDescription} />
+    {metaDescription && <meta name="description" content={metaDescription} />}
     <meta property="og:title" content={pageTitle} />
     <meta property="og:site_name" content={SITE.title} />
-    <meta property="og:description" content={metaDescription} />
-    <meta property="og:author" content={SITE.author} />
+    {metaDescription && (
+      <meta property="og:description" content={metaDescription} />
+    )}
     <meta property="og:image" content={ogImage} />
     <meta property="og:type" content="website" />
     <script
       async
-      src={`https://www.googletagmanager.com/gtag/js?id=UA-201251923-1`}></script>
+      src={`https://www.googletagmanager.com/gtag/js?id=G-E868R1LME4`}></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-      gtag("config", "UA-201251923-1");
+      gtag("config", "G-E868R1LME4");
     </script>
   </head>
   <body>
